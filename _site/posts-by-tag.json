@@ -1,0 +1,56 @@
+
+
+[   
+      
+  {
+  "tag" : "TIL",
+  "posts" : [
+      
+      "./TIL-Start.html"
+      
+    ]
+  } ,
+    
+      
+  {
+  "tag" : "coding",
+  "posts" : [
+      
+      "./conways-game-of-life.html",
+      
+      "./single-neuron-perceptron.html"
+      
+    ]
+  } ,
+    
+      
+  {
+  "tag" : "machine learning",
+  "posts" : [
+      
+      "./single-neuron-perceptron.html"
+      
+    ]
+  } ,
+    
+      
+  {
+  "tag" : "neural networks",
+  "posts" : [
+      
+      "./single-neuron-perceptron.html"
+      
+    ]
+  } ,
+    
+      
+  {
+  "tag" : "python",
+  "posts" : [
+      
+      "./conways-game-of-life.html"
+      
+    ]
+  } 
+    
+]

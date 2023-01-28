@@ -1,6 +1,11 @@
 
 @charset "utf-8";
 /* Main Color palette and fonts */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+*{
+  font-family: pretendard !important;
+}
 
 html {
   --accent:       #DB504A;    /* accent     */
@@ -420,7 +425,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 4rem;
+  /* font-size: 4rem; */
   font-weight: var(--font2-regular);
   line-height: 1;
 }
@@ -1489,7 +1494,7 @@ img + small, img + br + small {
 }
 .header-page h1 {
   font-weight: var(--font2-regular);
-  font-size: 4.25rem;
+  /* font-size: 4.25rem; */
   text-align: left;
   margin: 0 0 10px;
   color: var(--text)
