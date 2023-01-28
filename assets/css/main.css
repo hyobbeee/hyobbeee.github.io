@@ -3,10 +3,6 @@
 /* Main Color palette and fonts */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
 
-*{
-  font-family: pretendard !important;
-}
-
 html {
   --accent:       #DB504A;    /* accent     */
   --accent-dark:  #4e3e51;    /* accent 2   */
