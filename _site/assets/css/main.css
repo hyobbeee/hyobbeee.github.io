@@ -6,15 +6,15 @@
 html {
   --accent:       #DB504A;    /* accent     */
   --accent-dark:  #4e3e51;    /* accent 2   */
-  --main:         #326273;    /* main color */
-  --main-dim:     #879dab;    /* dimmed version of main color */
+  --main:         #76abe1;    /* main color */
+  --main-dim:     #5386ab;    /* dimmed version of main color */
   --text:         #2B323B;
   --grey1:        #5F5E58;
   --grey2:        #8D897C;
   --grey3:        #B4B3A7;
   --grey4:        #DAD7D2;
   --grey5:        #F0EFED;
-  --background:   #ffffff;
+  --background:   #FBF7F0;
   --shadow:       rgba(32,30,30,.3);
   --github:       #333;
   --font1: 'Lora', charter, Georgia, Cambria, 'Times New Roman', Times, serif;/* body text */
@@ -583,7 +583,7 @@ svg {
           align-items: center;
 }
 .main-header .logo {
-  width: 80%;
+  width: 40%;
   position: relative;
   text-align: center;
   color:var(--main);
@@ -939,6 +939,7 @@ svg.menu-icon-house {
   max-height: 45px;
 }
 .logo-link {
+  margin-top: 9px;
   display:block;
   color: var(--grey4);
   -webkit-transition: all 350ms cubic-bezier(0.13, 0.43, 0.54, 1.82);
