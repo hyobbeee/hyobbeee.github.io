@@ -3,8 +3,20 @@
 [   
       
   {
+  "tag" : "JavaScript",
+  "posts" : [
+      
+      "./for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html"
+      
+    ]
+  } ,
+    
+      
+  {
   "tag" : "TIL",
   "posts" : [
+      
+      "./for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html",
       
       "./TIL-Start.html"
       

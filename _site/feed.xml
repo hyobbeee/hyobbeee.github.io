@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-29T15:44:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">HyoLog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>hyobbeee</name></author><entry><title type="html">node.js / 3rd-party 모듈</title><link href="http://localhost:4000/3rd-party-module.html" rel="alternate" type="text/html" title="node.js / 3rd-party 모듈" /><published>2023-01-24T00:00:00+09:00</published><updated>2023-01-24T00:00:00+09:00</updated><id>http://localhost:4000/3rd-party-module</id><content type="html" xml:base="http://localhost:4000/3rd-party-module.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-30T21:17:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">HyoLog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>hyobbeee</name></author><entry><title type="html">for문과 while문의 차이</title><link href="http://localhost:4000/for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html" rel="alternate" type="text/html" title="for문과 while문의 차이" /><published>2023-01-30T00:00:00+09:00</published><updated>2023-01-30T00:00:00+09:00</updated><id>http://localhost:4000/for%EB%AC%B8%EA%B3%BC%20while%EB%AC%B8%EC%9D%98%20%EC%B0%A8%EC%9D%B4</id><content type="html" xml:base="http://localhost:4000/for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html"><![CDATA[<h3 id="정리-사유">🎃 정리 사유</h3>
+
+<p>알고리즘 문제 풀이 중 while문으로 완료했는데 레퍼런스에는 for문으로 구현되어 있어 어떤 상황에 사용하는지 정확하게 구별해서 사용하기 위해 정리해보았습니다.</p>
+
+<h1 id="for-문">📍for 문</h1>
+
+<p>이전에도 정리를 한 적 있지만 다시 쉽게 정리해보자면</p>
+
+<p><strong>반복 횟수를 알고 있을 경우 주로 사용한다.</strong></p>
+
+<p><img src="https://www.notion.so/hyobbeee/for-while-add2458f76c44896871fded4a039ec3c#c69a08d3c0294d9f92f87993243d8390" alt="for문 구조" /></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">sum</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 10</span>
+</code></pre></div></div>
+
+<h1 id="while-문">📍while 문</h1>
+
+<p>for문이 정해진 횟수만큼 반복한다면,</p>
+
+<p><strong>while문은 조건식이 true일 경우 계속해서 반복한다.</strong></p>
+
+<p>조건식에는 비교 또는 논리 연산식이 주로 오는데, for문과 마찬가지로 조건식이 false 일경우 실행 종료.</p>
+
+<p><img src="https://www.notion.so/hyobbeee/for-while-add2458f76c44896871fded4a039ec3c#74aee6942e9b428b85c2de8e7e7c4660" alt="while문 구조" /></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 합을 저장할 변수</span>
+<span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 카운터 변수</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">sum</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+	<span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 10</span>
+</code></pre></div></div>
+
+<h2 id="️for-문과-while-문의-차이점">⚙️ for 문과 while 문의 차이점</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>for 문을 사용하는 경우</th>
+      <th>while 문을 사용하는 경우</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. 반복 횟수가 정해진 경우 <br /> 2. 배열과 함께 주로 많이 사용</td>
+      <td>1. 무한 루프나 특정 조건에 만족할 때까지 반복해야하는 경우<br />2. 주로 파일을 읽고 쓰기에 많이 사용</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="do-while-문">📍do-while 문</h1>
+
+<p>조건에 따라 반복을 할지 계속할지를 결정할 때 사용하는 것은 while문과 동일</p>
+
+<p><strong>하지만, 무조건 중괄호 블럭을 한번 실행하고 조건을 검사하여 반복을 결정한다.</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">do</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+	<span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>while문과 do-while문의 차이점은 조건을 먼저 검사하느냐 나중에 검사하느냐일 뿐 동작 방식은 동일하다.</p>
+
+<h1 id="continue-문">📍continue 문</h1>
+
+<p>for문, while문, do-while문에서 사용하며, for문에서 continue를 만나게 되면 증감식으로 바로 이동하게 되며, 나머지는 조건식으로 이동하게 만든다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 2로 나눈 나머지가 0이 아닌경우(=홀수인 경우)</span>
+		<span class="k">continue</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 홀수는 출력 되지 않음</span>
+<span class="p">}</span>
+</code></pre></div></div>]]></content><author><name>hyobbeee</name></author><category term="TIL" /><category term="JavaScript" /><summary type="html"><![CDATA[깃 블로그 만드는거 왜이렇게 어려워요.]]></summary></entry><entry><title type="html">node.js / 3rd-party 모듈</title><link href="http://localhost:4000/3rd-party-module.html" rel="alternate" type="text/html" title="node.js / 3rd-party 모듈" /><published>2023-01-24T00:00:00+09:00</published><updated>2023-01-24T00:00:00+09:00</updated><id>http://localhost:4000/3rd-party-module</id><content type="html" xml:base="http://localhost:4000/3rd-party-module.html"><![CDATA[<ul>
   <li>학습목표
     <ul>
       <li>Node.js 내장 모듈을 사용할 수 있다.</li>
@@ -112,7 +192,7 @@
 <p>안녕하세요. github 블로그 만들기 힘드네요.
 재업로드입니다….</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>]]></content><author><name>hyobbeee</name></author><category term="TIL" /><category term="TIL" /><summary type="html"><![CDATA[깃 블로그 만드는거 왜이렇게 어려워요.]]></summary></entry><entry><title type="html">Conway’s Game of Life</title><link href="http://localhost:4000/conways-game-of-life.html" rel="alternate" type="text/html" title="Conway’s Game of Life" /><published>2021-02-11T04:32:20+09:00</published><updated>2021-02-11T04:32:20+09:00</updated><id>http://localhost:4000/conways-game-of-life</id><content type="html" xml:base="http://localhost:4000/conways-game-of-life.html"><![CDATA[<p>I&nbsp;am lately trying to take on coding again. It had always been a part of my life since my early years when I&nbsp;learned to program a Tandy Color Computer at the age of 8, the good old days.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>]]></content><author><name>hyobbeee</name></author><category term="TIL" /><summary type="html"><![CDATA[깃 블로그 만드는거 왜이렇게 어려워요.]]></summary></entry><entry><title type="html">Conway’s Game of Life</title><link href="http://localhost:4000/conways-game-of-life.html" rel="alternate" type="text/html" title="Conway’s Game of Life" /><published>2021-02-11T04:32:20+09:00</published><updated>2021-02-11T04:32:20+09:00</updated><id>http://localhost:4000/conways-game-of-life</id><content type="html" xml:base="http://localhost:4000/conways-game-of-life.html"><![CDATA[<p>I&nbsp;am lately trying to take on coding again. It had always been a part of my life since my early years when I&nbsp;learned to program a Tandy Color Computer at the age of 8, the good old days.</p>
 
 <p><img src="./assets/img/posts/20210210/300px-TRS-80_Color_Computer_3.jpg" alt="Tandy Color Computer TRS80 III" /><small>Tandy Color Computer TRS80 III</small></p>
 

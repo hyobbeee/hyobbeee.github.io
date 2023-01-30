@@ -4,7 +4,7 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
 
 html {
-  --accent:       #DB504A;    /* accent     */
+  --accent:       #76abe1;    /* accent     */
   --accent-dark:  #4e3e51;    /* accent 2   */
   --main:         #76abe1;    /* main color */
   --main-dim:     #5386ab;    /* dimmed version of main color */
@@ -28,9 +28,9 @@ html {
 }
 
 html[data-theme="dark"]  {
-  --accent:       #d14c47;    /* accent     */
-  --accent-dark:  #DBBEA1;    /* accent 2   */
-  --main:         #5F8081;    /* main color */
+  --accent:       #76abe1;    /* accent     */
+  --accent-dark:  #FBF7F0;    /* accent 2   */
+  --main:         #5386ab;    /* main color */
   --main-dim:     #333D47;    /* dimmed version of main color */
   --text:         #CBCCCD;
   --grey1:        #B1B1AE;
