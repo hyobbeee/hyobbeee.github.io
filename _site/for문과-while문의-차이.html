@@ -142,26 +142,6 @@
       <a  class="post-list-title" href="./for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html">for문과 while문의 차이</a>
       
 
-  <span class = "post-card-meta">
-  
-  
-    <span class="meta-pre"></span>
-  
-  
-    
-      
-      <span class="page_meta-date">
-        <time datetime="2023-01-30T00:00:00+09:00">January 30, 2023</time>
-      </span>
-    
-    
-      
-    
-  
-  
-  
-  </span>
-
         <div class="post-excerpt">
             <h3 id="정리-사유">🎃 정리 사유</h3><p>알고리즘 문제 풀이 중 while문으로 완료했는데 레퍼런스에는 for문으로 구현되어 있어 어떤 상황에 사용하는지 정확하게 구별해서 사용하기 위해 정리해보았습니다.</p><h1 id="for-문">📍for 문</h1><p>이전에도 정리를 한 적 있지만 다시 쉽게 정리해보자면</p><p><strong>반복 횟수를 알고 있을 경우 주로 사용한다.</strong></p><p><img src="https://www.notion.so/hyobbeee/for-while-add2458f76c44896871fded4a039ec3c#c69a08d3c0294d9f92f87993243d8390" alt="for문 구조" /></p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span><span class="p">}</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 10</span></code></pre></div></div><h1 id="while-문">📍while 문</h1><p>for문이 정해진 횟수만큼 반복한다면,</p><p><strong>while문은 조건식이 true일 경우...<a class="read-more" href="./for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html"> read more</a>
         </div>
@@ -274,28 +254,6 @@
           <h1 class="page-title">for문과 while문의 차이</h1>
           
 
-  <span class = "post-page-meta">
-  
-    <p class="page_meta">
-  
-  
-  
-    
-      
-      <span class="page_meta-date">
-        <time datetime="2023-01-30T00:00:00+09:00">January 30, 2023</time>
-      </span>
-    
-    
-      
-    
-  
-  
-  
-    </p>
-  
-  </span>
-
         </div>
         <aside class="sidebar side" id="sidebar">
     
@@ -329,7 +287,15 @@
 </div>
 </aside>
 
-        
+        <aside class="toc">
+  <nav class="toc-nav">
+    <li class="toc-title">
+      <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="align-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-align-left fa-w-14 fa-2x"><g class="fa-group"><path fill="currentColor" d="M12.83 352h262.34A12.82 12.82 0 0 0 288 339.17v-38.34A12.82 12.82 0 0 0 275.17 288H12.83A12.82 12.82 0 0 0 0 300.83v38.34A12.82 12.82 0 0 0 12.83 352zm0-256h262.34A12.82 12.82 0 0 0 288 83.17V44.83A12.82 12.82 0 0 0 275.17 32H12.83A12.82 12.82 0 0 0 0 44.83v38.34A12.82 12.82 0 0 0 12.83 96z" class="fa-secondary"></path><path fill="currentColor" d="M432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z" class="fa-primary"></path></g></svg>
+    </li>
+    <ul class="toc-content" id="toc-content"><li class="toc-item-1"><a href="#정리-사유">🎃 정리 사유</a></li></ul>
+  </nav>
+</aside>
+
         
         <h3 id="정리-사유">🎃 정리 사유</h3>
 
@@ -488,14 +454,6 @@
             <div class="recent-item-title">
               <span>for문과 while문의 차이</span>
               
-
-  <span class = "recent-item-meta">
-  
-  
-  
-  
-  
-  </span>
 
             </div>
           </a>
@@ -841,20 +799,43 @@
 
 
 
-
-
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      processEscapes: true
-    },
-    "CommonHTML": { linebreaks: { automatic: true } }
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@5.1.1/dist/gumshoe.polyfills.min.js"></script>
+  <script>
+    var spy = new Gumshoe("#toc-content a", {
+      navClass:"active",
+      contentClass:"underline",
+      nested:0,
+      nestedClass:"active",
+      offset:20,
+      reflow:1,
+      events:1
     });
+
+    var coll = document.getElementsByClassName("toc-item-1");
+    var i;
+    var chevron_up = "<svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 512\"><path fill=\"currentColor\" d=\"M136.5 185.1l116 117.8c4.7 4.7 4.7 12.3 0 17l-7.1 7.1c-4.7 4.7-12.3 4.7-17 0L128 224.7 27.6 326.9c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17l116-117.8c4.7-4.6 12.3-4.6 17 .1z\"></path></svg>"
+    var chevron_down = "<svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 512\"><path fill=\"currentColor\" d=\"M119.5 326.9L3.5 209.1c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0L128 287.3l100.4-102.2c4.7-4.7 12.3-4.7 17 0l7.1 7.1c4.7 4.7 4.7 12.3 0 17L136.5 327c-4.7 4.6-12.3 4.6-17-.1z\"></path></svg>"
+    for (i = 0; i < coll.length; i++) {
+      if (coll[i].childElementCount > 1) {
+        sign = document.createElement('div');
+        sign.className = "toc-sign";
+        sign.innerHTML = chevron_down;
+        coll[i].insertBefore(sign, coll[i].childNodes[0].nextSibling);
+        coll[i].addEventListener("click", function() {
+          var content = this.lastElementChild;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+            this.firstElementChild.nextSibling.innerHTML = chevron_down;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            this.firstElementChild.nextSibling.innerHTML = chevron_up;
+          }
+        });
+      }
+    }
   </script>
-  <script src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
 
 
 <script src="./assets/js/main.js"></script>

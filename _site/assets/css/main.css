@@ -17,8 +17,8 @@ html {
   --background:   #FBF7F0;
   --shadow:       rgba(32,30,30,.3);
   --github:       #333;
-  --font1: 'Lora', charter, Georgia, Cambria, 'Times New Roman', Times, serif;/* body text */
-  --font2: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* headers and titles   */
+  --font1: 'Pretendard', 'Lora', charter, Georgia, Cambria, 'Times New Roman', Times, serif;/* body text */
+  --font2: 'Pretendard','Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* headers and titles   */
   --font1-light:      400;
   --font1-regular:    400;
   --font1-bold:       600;
@@ -404,7 +404,7 @@ html, body {
 html {
     line-height: 1.75;
     letter-spacing: 0.002em;
-    font-size: 1.375rem;
+    /* font-size: 1.375rem; */
 }
 body {
   font-family: var(--font1);
@@ -538,7 +538,6 @@ svg {
           flex-grow: 1;
 }
 .wrapper {
-  font-family: 'Pretendard';
   width: 960px;
   max-width: 90%;
   margin: 0.75em auto 0.75em;
@@ -890,8 +889,9 @@ svg.menu-icon-house {
   text-decoration: none;
   font-family: var(--font2), sans-serif;
   font-weight: var(--font2-bold);
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: white;
+  font-size: 1.375rem;
 }
 .post-card-link:hover {
   opacity: .75;
@@ -1492,7 +1492,7 @@ img + small, img + br + small {
 }
 .header-page h1 {
   font-weight: var(--font2-regular);
-  /* font-size: 4.25rem; */
+  font-size: 3rem;
   text-align: left;
   margin: 0 0 10px;
   color: var(--text)
@@ -1985,7 +1985,7 @@ a.read-more:hover {
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
   .main-header .logo {
-  width: 90%;
+  width: 40%;
 }
   .main-header .logo a {
     font-size: 24px;
