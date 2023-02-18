@@ -3,10 +3,10 @@ layout: post
 read_time: true
 show_date: true
 title:  "의사코드(pseudo-code)"
-date:   2023-02-16
-description: 깃 블로그 만드는거 왜이렇게 어려워요.
+date:   2023-02-18
+description: 의사(疑似: 비교할 의, 비슷할 사 / Pseudo: 가짜의) 코드는 컴퓨터 프로그램이나 알고리즘이 수행해야할 내용을 우리가 사용하는 언어로 간략히 서술해 놓은 것.
 img: my_keyboard.jpeg
-tags: [TIL, JavaScript]
+tags: [TIL, etc]
 author: hyobbeee
 mathjax: yes
 ---
