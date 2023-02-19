@@ -4,7 +4,7 @@ read_time: true
 show_date: true
 title:  "의사코드(pseudo-code)"
 date:   2023-02-18
-description: 의사(疑似: 비교할 의, 비슷할 사 / Pseudo: 가짜의) 코드는 컴퓨터 프로그램이나 알고리즘이 수행해야할 내용을 우리가 사용하는 언어로 간략히 서술해 놓은 것.
+description: '의사(疑似: 비교할 의, 비슷할 사 / Pseudo: 가짜의) 코드는 컴퓨터 프로그램이나 알고리즘이 수행해야할 내용을 우리가 사용하는 언어로 간략히 서술해 놓은 것.'
 img: my_keyboard.jpeg
 tags: [TIL, etc]
 author: hyobbeee
@@ -15,7 +15,7 @@ mathjax: yes
 
 의사(疑似: 비교할 의, 비슷할 사 / Pseudo: 가짜의) 코드는 컴퓨터 프로그램이나 알고리즘이 수행해야할 내용을 우리가 사용하는 언어로 간략히 서술해 놓은 것.
 
-![의사코드 없이 프로그램 작성할 경우 vs 의사코드를 사용할 경우](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/beee21cd-ce2e-40ef-90e8-1b1b86212fd1/Untitled.png)
+![의사코드 없이 프로그램 작성할 경우 vs 의사코드를 사용할 경우](https://www.notion.so/hyobbeee/pseudo-code-02124b81821348a9beba206cbe8a6bad?pvs=4#dcd01016b5db4111b4a27f3a239f5e05)
 
 의사코드 없이 프로그램 작성할 경우 vs 의사코드를 사용할 경우
 
