@@ -1,14 +1,11 @@
 ---
 layout: post
-read_time: true
-show_date: true
 title:  "Ajax, axios, fetch 비교, 장단점 정리"
 date:   2023-03-01
-description: 간단통신 fetch, 부가기능 axios
-img: my_keyboard.jpeg
-tags: [TIL, WEB]
 author: hyobbeee
-mathjax: yes
+categories: WEB
+tags: TIL WEB
+cover:  "/assets/instacode.png"
 ---
 # Ajax
 

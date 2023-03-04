@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>for문과 while문의 차이</title>
+  <meta name="description" content="  🎃 정리 사유  알고리즘 문제 풀이 중 while문으로 완료했는데 레퍼런스에는 for문으로 구현되어 있어 어떤 상황에 사용하는지 정확하게 구별해서 사용하기 위해 정리해보았습니다.  📍for 문">
+  
+  <meta name="author" content="윤종협">
+  <meta name="copyright" content="&copy; 윤종협 2023">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="  🎃 정리 사유  알고리즘 문제 풀이 중 while문으로 완료했는데 레퍼런스에는 for문으로 구현되어 있어 어떤 상황에 사용하는지 정확하게 구별해서 사용하기 위해 정리해보았습니다.  📍for 문" />
+  <meta property="og:url" content="http://localhost:4000/javascript/2023/01/30/for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html">
+  <meta property="og:site_name" content="HTIL" />
+  <meta property="og:title" content="for문과 while문의 차이" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/instacode.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="for문과 while문의 차이">
+  <meta name="twitter:description" content="  🎃 정리 사유  알고리즘 문제 풀이 중 while문으로 완료했는데 레퍼런스에는 for문으로 구현되어 있어 어떤 상황에 사용하는지 정확하게 구별해서 사용하기 위해 정리해보았습니다.  📍for 문">
+  <meta name="twitter:image" content="http://localhost:4000/assets/instacode.png">
+  <meta name="twitter:url" content="http://localhost:4000/javascript/2023/01/30/for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/javascript/2023/01/30/for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html">
+	<link rel="alternate" type="application/rss+xml" title="HTIL" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="HTIL">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/instacode.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">for문과 while문의 차이</h1>
+      <p class="info">by <strong>hyobbeee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">January 30, 2023</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/JavaScript">Javascript</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <blockquote>
+  <p>🎃 정리 사유</p>
+
+  <p>알고리즘 문제 풀이 중 while문으로 완료했는데 레퍼런스에는 for문으로 구현되어 있어 어떤 상황에 사용하는지 정확하게 구별해서 사용하기 위해 정리해보았습니다.
+<br /></p>
+  <h1 id="for-문">📍for 문</h1>
+</blockquote>
+
+<p>이전에도 정리를 한 적 있지만 다시 쉽게 정리해보자면</p>
+
+<p><strong>반복 횟수를 알고 있을 경우 주로 사용한다.</strong></p>
+
+<p><img width="943" alt="for-statement" src="https://user-images.githubusercontent.com/99409757/216072423-940a4c24-9de7-4cc6-932b-c45a8e1dbe13.png" /></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">sum</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 10</span>
+</code></pre></div></div>
+
+<h1 id="while-문">📍while 문</h1>
+
+<p>for문이 정해진 횟수만큼 반복한다면,</p>
+
+<p><strong>while문은 조건식이 true일 경우 계속해서 반복한다.</strong></p>
+
+<p>조건식에는 비교 또는 논리 연산식이 주로 오는데, for문과 마찬가지로 조건식이 false 일경우 실행 종료.</p>
+
+<p><img width="531" alt="while-statement" src="https://user-images.githubusercontent.com/99409757/216072405-0f6003c0-e28f-452c-88ed-78ebdfe000fd.png" /></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 합을 저장할 변수</span>
+<span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 카운터 변수</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">sum</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+	<span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 10</span>
+</code></pre></div></div>
+
+<h2 id="️for-문과-while-문의-차이점">⚙️ for 문과 while 문의 차이점</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>for 문을 사용하는 경우</th>
+      <th>while 문을 사용하는 경우</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. 반복 횟수가 정해진 경우 <br /> 2. 배열과 함께 주로 많이 사용</td>
+      <td>1. 무한 루프나 특정 조건에 만족할 때까지 반복해야하는 경우<br />2. 주로 파일을 읽고 쓰기에 많이 사용</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="do-while-문">📍do-while 문</h1>
+
+<p>조건에 따라 반복을 할지 계속할지를 결정할 때 사용하는 것은 while문과 동일</p>
+
+<p><strong>하지만, 무조건 중괄호 블럭을 한번 실행하고 조건을 검사하여 반복을 결정한다.</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">do</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+	<span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>while문과 do-while문의 차이점은 조건을 먼저 검사하느냐 나중에 검사하느냐일 뿐 동작 방식은 동일하다.</p>
+
+<h1 id="continue-문">📍continue 문</h1>
+
+<p>for문, while문, do-while문에서 사용하며, for문에서 continue를 만나게 되면 증감식으로 바로 이동하게 되며, 나머지는 조건식으로 이동하게 만든다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 2로 나눈 나머지가 0이 아닌경우(=홀수인 경우)</span>
+		<span class="k">continue</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 홀수는 출력 되지 않음</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/TIL">TIL</a>,&nbsp;<a href="/tag/JavaScript">JavaScript</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">HTIL</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:yjh5799@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">yjh5799@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/hyobbeee" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">hyobbeee</span>
+            </a>
+          </li>
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">hyobbeee.github.io
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

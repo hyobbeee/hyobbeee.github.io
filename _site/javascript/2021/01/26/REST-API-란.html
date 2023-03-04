@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>REST API</title>
+  <meta name="description" content="🔥 작성하면서 다시 정리하기 위해 그대로 필사했습니다. 이해가 될때까지 읽어보겠읍니다...😅">
+  
+  <meta name="author" content="윤종협">
+  <meta name="copyright" content="&copy; 윤종협 2023">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="🔥 작성하면서 다시 정리하기 위해 그대로 필사했습니다. 이해가 될때까지 읽어보겠읍니다...😅" />
+  <meta property="og:url" content="http://localhost:4000/javascript/2021/01/26/REST-API-%EB%9E%80.html">
+  <meta property="og:site_name" content="HTIL" />
+  <meta property="og:title" content="REST API" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/instacode.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="REST API">
+  <meta name="twitter:description" content="🔥 작성하면서 다시 정리하기 위해 그대로 필사했습니다. 이해가 될때까지 읽어보겠읍니다...😅">
+  <meta name="twitter:image" content="http://localhost:4000/assets/instacode.png">
+  <meta name="twitter:url" content="http://localhost:4000/javascript/2021/01/26/REST-API-%EB%9E%80.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/javascript/2021/01/26/REST-API-%EB%9E%80.html">
+	<link rel="alternate" type="application/rss+xml" title="HTIL" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="HTIL">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/instacode.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">REST API</h1>
+      <p class="info">by <strong>hyobbeee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">January 26, 2021</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/JavaScript">Javascript</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <aside>
+🔥 작성하면서 다시 정리하기 위해 그대로 필사했습니다. 이해가 될때까지 읽어보겠읍니다...😅
+</aside>
+<p><br /></p>
+
+<p><img src="https://user-images.githubusercontent.com/99409757/216071838-1b3a30a8-bb0a-41fc-bf03-2693f7ab4339.png" alt="what-is-rest" /></p>
+
+<h2 id="개념">📍개념</h2>
+
+<ol>
+  <li>Representational State Transfer의 약자로 자원의 이름으로 구분하여 해당 자원의 상태(정보)를 주고 받는 모든것</li>
+</ol>
+
+<p>→ 자원(resource)의 표현(representation)에 의한 상태 전달</p>
+
+<ul>
+  <li>자원 : 해당소프트웨어가 관리하는 모든것 ex) 문서, 그림, 데이터, 해당 소프트웨어 자체 등
+    <ul>
+      <li>자원의 표현 : 그 자원을 표현하기 위한 이름 ex) DB의 학생 정보가 자원일 때, ‘student’를 자원의 표현으로 정함.</li>
+    </ul>
+  </li>
+  <li>상태(정보) 전달
+    <ul>
+      <li>데이터가 요청되어지는 시점에서 자원의 상태(정보)를 전달한다.</li>
+      <li>JSON 혹은 XML을 통해 데이터를 주고 받는 것이 일반적이다.
+        <ol>
+          <li>월드와이드웹(www)과 같은 분산 하이퍼미디어 시스템을 위한 소프트웨어 개발 아키텍처의 한 형식</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 활용하기 때문에 웹의 장점을 최대한 활용할 수 있는 아키텍처 스타일이다.</li>
+  <li>REST는 네트웨크 상에서 클라이언트와 서버 간 통식 방식 중 하나이다.</li>
+</ul>
+
+<h2 id="장점">🔹장점</h2>
+
+<ul>
+  <li>HTTP 프로토콜의 인프라를 그대로 사용하므로 REST API 사용을 위한 별도의 인프라를 구축할 필요가 없다.</li>
+  <li>HTTP 프로토콜의 표준을 최대한 활용하여 여러 추가적인 장점을 함께 가져갈 수 있게 해준다.</li>
+  <li>HTTP 표준 프로토콜에 따르는 모든 플랫폼에서 사용이 가능하다.</li>
+  <li>Hypermedia API의 기본을 충실히 지키면서 범용성을 보장한다.</li>
+  <li>REST API 메시지가 의도하는 바를 명확하게 나타내므로 의도하는 바를 쉽게 파악 할 수 있다.</li>
+  <li>여러가지 서비스 디자인에서 생길 수 있는 문제를 최소화 한다.</li>
+  <li>서버와 클라이언트의 역할을 명확하게 분리한다.</li>
+</ul>
+
+<h2 id="단점">🔸단점</h2>
+
+<ul>
+  <li>표준이 존재하지 않는다.</li>
+  <li>사용할 수 있는 메소드(HTTP Method)가 4가지 밖에 없다.</li>
+  <li>브라우저를 통해 테스트할 일이 많은 서비스라면 쉽게 고칠 수 있는 URL보다 Header 값이 왠지 더 어렵게 느껴진다.</li>
+  <li>구형 브라우저는 제대로 지원되지 않는다. (ex. PUT, DELETE 사용불가, pushState 미지원 등)</li>
+</ul>
+
+<h2 id="필요한-이유">📍필요한 이유</h2>
+
+<ul>
+  <li>애플리케이션 분리 및 통합에 유리하다.</li>
+  <li>최근 서버 프로그램은 다양한 브라우저와 안드로이드폰, 아이폰과 같은 디바이스에서도 통신을 할 수 있어야 한다</li>
+  <li>이러한 멀티 플랫폼에 대한 지원을 위해 서비스 자원에 대한 아키텍처를 세우고 이용하는 방법을 모색한 결과, REST에 관심을 가지게 됨</li>
+</ul>
+
+<h2 id="특징">📍특징</h2>
+
+<ol>
+  <li>
+    <p><strong>서버 - 클라이언트 구조</strong></p>
+
+    <p>자원이 있는 쪽이 서버, 자원을 요청하는 쪽이 클라이언트가 된다.</p>
+
+    <ul>
+      <li>REST 서버 : API를 제공하고 비즈니스 로직 처리 및 저장을 책임</li>
+      <li>Client : 사용자 인증이나 context(세션, 로그인 정보) 등을 직접 관리하고 책임</li>
+    </ul>
+
+    <p>서로간 의존성이 줄어든다.</p>
+  </li>
+  <li><strong>무상태(Stateless)</strong>
+    <ul>
+      <li>HTTP 프로토콜은 Stateless Protocol이르모 REST 역시 무상태성을 갖는다.</li>
+      <li>클라이언트의 Context를 Server에 저장하지 않아 정보를 신경쓰지 않고 구현 가능</li>
+      <li>Server는 각각의 요청을 완전히 별개의 것으로 인식하고 처리한다.
+        <ul>
+          <li>각 API 서버는 클라이언트의 요청만을 단순 처리한다.(이전 요청과 연관 되면 안됨 - DB 수정은 가능)</li>
+          <li>서버의 처리 방식에 일관성을 부여하고 부담이 줄어들며, 서비스의 자유도가 높아진다</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>캐시 처리 기능(Cacheable)</p>
+
+    <p>웹 표준 HTTP 프로토콜을 그대로 사용하므로 웹에서 사용하는 기존의 인프라를 그대로 활용 할 수 있다.</p>
+
+    <p>→ HTTP가 가진 강력한 특징 중 하나인 캐싱 기능을 적용할 수 있다.(Last-Modified 태그, E-Tag 활용)</p>
+  </li>
+  <li>
+    <p>계층화(Layerd System)</p>
+
+    <p>클라이언트는 REST API 서버만 호출한다.</p>
+
+    <p>REST 서버는 다중 계층으로 구성 될 수 있다. (<del>무슨말이람…</del>)</p>
+
+    <ul>
+      <li>API 서버는 순수 비즈니스 로직을 수행하고 그 앞단에 보안, 로드 밸런싱 암호화, 사용자 인증 등을 추가 하여 구조상에 유연성을 줄 수있다.</li>
+      <li>또한 로드 밸런싱, 공유 캐시 등을 통해 확장성과 보안성을 향상 시킬 수 있다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Code-On-Demand(선택사항)</p>
+
+    <p>서버로 부터 스크립트를 받아서 클라이언트에서 실행한다.</p>
+  </li>
+  <li>
+    <p>인터페이스 일관성(Uniform Interface)</p>
+
+    <p>URI로 지정한 리소스에 대한 조작을 통일되고 한정적인 인터페이스로 수행한다.</p>
+
+    <p>HTTP 표준 프로토콜에 따르는 모든 플랫폼에서 사용 가능하다.(특정 언어에 종속되지 않는다.)
+<br /><br /></p>
+  </li>
+</ol>
+
+<h1 id="restful">RESTful</h1>
+
+<h2 id="개념-1">📍개념</h2>
+
+<p>RESTful은 일반적으로 REST라는 아키텍처를 구현하는 웹 서비스를 나타내기 위해 사용되는 용어이다.</p>
+
+<ul>
+  <li>‘REST API’ 를 제공하는 웹 서비스를 ‘RESTful’ 하다고 할 수 있다.</li>
+  <li>REST 원리를 따르는 시스템은 RESTful이란 용어로 지칭된다.</li>
+</ul>
+
+<h2 id="목적">📍목적</h2>
+
+<ul>
+  <li>이해하기 쉽고 사용하기 쉬운 REST API를 만드는 것 (성능이 중요한 상황에서는 굳이 RESTful한 API를 구현할 필요는 없다.)</li>
+</ul>
+
+<blockquote>
+  <p>RESTful 하지 못한 경우</p>
+</blockquote>
+
+<p>ex) CRUD 기능을 모두 POST로만 처리하는 API</p>
+
+<p>ex) route에 response, id 외의 정보가 들어가는 경우(/students/updateName)</p>
+
+<hr />
+
+<p>출처 : <a href="https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html">https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html</a></p>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/TIL">TIL</a>,&nbsp;<a href="/tag/JavaScript">JavaScript</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">HTIL</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:yjh5799@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">yjh5799@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/hyobbeee" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">hyobbeee</span>
+            </a>
+          </li>
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">hyobbeee.github.io
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

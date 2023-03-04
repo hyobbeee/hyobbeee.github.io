@@ -1,14 +1,11 @@
 ---
 layout: post
-read_time: true
-show_date: true
 title:  "정렬(bubble, insertion, selection) 알고리즘"
 date:   2023-02-25
-description: 깃 블로그 만드는거 왜이렇게 어려워요.
-img: my_keyboard.jpeg
-tags: [TIL, algorithm]
 author: hyobbeee
-mathjax: yes
+categories: algorithm
+tags: TIL algorithm
+cover:  "/assets/instacode.png"
 ---
 
 ## 🙀summary

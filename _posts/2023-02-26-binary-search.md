@@ -1,14 +1,11 @@
 ---
 layout: post
-read_time: true
-show_date: true
 title:  "이진탐색(Binary Search)"
 date:   2023-02-26
-description: 깃 블로그 만드는거 왜이렇게 어려워요.
-img: my_keyboard.jpeg
-tags: [TIL, algorithm]
 author: hyobbeee
-mathjax: yes
+categories: algorithm
+tags: TIL algorithm
+cover:  "/assets/instacode.png"
 ---
 
 ## 📍개념

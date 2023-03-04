@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ajax, axios, fetch 비교, 장단점 정리</title>
+  <meta name="description" content="Ajax">
+  
+  <meta name="author" content="윤종협">
+  <meta name="copyright" content="&copy; 윤종협 2023">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="Ajax" />
+  <meta property="og:url" content="http://localhost:4000/web/2023/03/01/ajax-axios-fetch.md.html">
+  <meta property="og:site_name" content="HTIL" />
+  <meta property="og:title" content="Ajax, axios, fetch 비교, 장단점 정리" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/instacode.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ajax, axios, fetch 비교, 장단점 정리">
+  <meta name="twitter:description" content="Ajax">
+  <meta name="twitter:image" content="http://localhost:4000/assets/instacode.png">
+  <meta name="twitter:url" content="http://localhost:4000/web/2023/03/01/ajax-axios-fetch.md.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/web/2023/03/01/ajax-axios-fetch.md.html">
+	<link rel="alternate" type="application/rss+xml" title="HTIL" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="HTIL">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/instacode.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">Ajax, axios, fetch 비교, 장단점 정리</h1>
+      <p class="info">by <strong>hyobbeee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">March 1, 2023</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/WEB">Web</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h1 id="ajax">Ajax</h1>
+
+<h3 id="개념">📍개념</h3>
+
+<p>Asynchronous Javascript And XML의 약자로,</p>
+
+<p>비동기적으로 JS를 사용해서 데이터를 받아와 동적으로 DOM을 갱신 및 조작하는 웹 개발 기법</p>
+
+<p>여기서 XML이 있는 이유는 과거 데이터 포맷으로 XML을 많이 사용했기 때문</p>
+
+<h3 id="동작원리">📍동작원리</h3>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9af90128-231d-43b4-a4a2-10ba4df3ad04/Untitled.png" alt="Untitled" /></p>
+
+<p>사용자가 AJAX가 적용된 UI와 상호작용하면, 서버에 AJAX 요청을 보내게 된다.</p>
+
+<p>서버는 DB에서 데이터를 가져와서 JS파일에 정의되어 있는대로 HTML/CSS와 데이터를 융합하여 만든 DOM객체를 UI에 업데이트 시킨다.</p>
+
+<p>비동기로 이뤄지며, 기존의 페이지를 전부 로딩하는 방식이 아닌 일부만 업데이트 하는 방식</p>
+
+<h3 id="사용법">📍사용법</h3>
+
+<p>일반적으로 <code class="language-plaintext highlighter-rouge">XMLHttpRequest</code> 객체를 사용하여 인스턴스를 만들어 인스턴스의 <code class="language-plaintext highlighter-rouge">open()</code>, <code class="language-plaintext highlighter-rouge">send()</code> 등의 매서드를 이용한다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">ourRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">ourRequest</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span> <span class="c1">// 메서드 주소 설정</span>
+	<span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">https://learnwebcode.github.io/json-example/animals-1.json</span><span class="dl">"</span>
+<span class="p">);</span>
+<span class="nx">ourRequest</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="kd">let</span> <span class="nx">ourData</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">ourRequest</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ourData</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">};</span>
+<span class="nx">ourRequest</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span> <span class="c1">// 요청 전송</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">open()</code> 으로 요청할 메서드와 URL을 설정한 뒤, 모두 로드되었을 경우 콜백함수를 초기화 한다.</p>
+
+<h1 id="axios">axios</h1>
+
+<p>axios는 Node.js와 브라우저를 위한 Promis API를 활용하는 HTTP 통신 라이브러리이다.</p>
+
+<p>비동기로 HTTP 통신을 할 수 있으며 return을 promise 객체로 해주기 떄문에 response 데이터를 다루기 쉽다.</p>
+
+<h3 id="장점">🔹장점</h3>
+
+<ul>
+  <li>response timeout(fetch에는 없는 기능) 처리 방법이 존재</li>
+  <li>Promise 기반으로 만들어졌기 때문에 데이터 다루기 편리하다.</li>
+  <li>브라우저 호환성이 뛰어나다.</li>
+</ul>
+
+<h3 id="단점">🔸단점</h3>
+
+<ul>
+  <li>사용을 위해 모듈 설치 필요(<code class="language-plaintext highlighter-rouge">npm install axios</code>)</li>
+</ul>
+
+<h3 id="사용법-1">📍사용법</h3>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">axios</span><span class="p">({</span>
+	<span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">post</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://localhost:3000</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">username</span><span class="p">:</span> <span class="dl">'</span><span class="s1">김코딩</span><span class="dl">'</span><span class="p">,</span>
+		<span class="na">userId</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h1 id="fetch-api"><a href="https://www.notion.so/fetch-0d4882b30dd24b019bb9a03d8d2585fd">Fetch API</a></h1>
+
+<p>ES6부터 들어온 JavaScript 내장 라이브러리이다.</p>
+
+<p>Promise 기반으로 만들어졌기 때문에 axios와 마찬가지로 데이터 다루기가 쉽고,</p>
+
+<p>내장 라이브러리여서 쉽게 CORS 이슈를 처리 가능</p>
+
+<h3 id="장점-1">🔹장점</h3>
+
+<ul>
+  <li>페이지를 전환하지 않고 빠르게 화면 일부분을 업데이트 가능</li>
+  <li>수신하는 데이터 양을 줄일 수 있고 클라이언트에게 처리를 양도 가능</li>
+  <li>서버 처리를 기다리지 않고 비동기 요청이 가능</li>
+</ul>
+
+<h3 id="단점-1">🔸단점</h3>
+
+<ul>
+  <li>지원하지 않는 브라우저 있음(IE11..)</li>
+  <li>네트워크 에러 발생시 response timeout 없이 기다려야 함</li>
+  <li>JSON으로 변환해주는 과정 필요</li>
+  <li>상대적으로 axios에 비해 기능 부족</li>
+</ul>
+
+<h3 id="사용법-2">📍사용법</h3>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://localhost:3000/user/post</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="na">id</span><span class="p">:</span> <span class="dl">"</span><span class="s2">asd123</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">description</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hello world</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">}),</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h2 id="summary">💡summary</h2>
+
+<ul>
+  <li>간단한 통신의 경우 : fetch</li>
+  <li>기능이 좀 더 필요한 경우 : axios</li>
+</ul>
+
+<p>하지만 React-Native와 같이 업데이트가 잦은 경우 fetch가 내장 라이브러리 이기 때문에 좀 더 안정적일 수 있다고 함</p>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/TIL">TIL</a>,&nbsp;<a href="/tag/WEB">WEB</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">HTIL</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:yjh5799@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">yjh5799@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/hyobbeee" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">hyobbeee</span>
+            </a>
+          </li>
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">hyobbeee.github.io
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

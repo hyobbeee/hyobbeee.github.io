@@ -2,7 +2,10 @@
 layout: post
 title:  "node.js / 3rd-party 모듈"
 date:   2023-01-24
-categories: TIL JavaScript
+author: hyobbeee
+tags: TIL Node.js
+categories: Node.js
+cover:  "/assets/instacode.png"
 ---
 
 - 학습목표

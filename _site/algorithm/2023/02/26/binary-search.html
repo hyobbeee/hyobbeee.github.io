@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>이진탐색(Binary Search)</title>
+  <meta name="description" content="📍개념">
+  
+  <meta name="author" content="윤종협">
+  <meta name="copyright" content="&copy; 윤종협 2023">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="📍개념" />
+  <meta property="og:url" content="http://localhost:4000/algorithm/2023/02/26/binary-search.html">
+  <meta property="og:site_name" content="HTIL" />
+  <meta property="og:title" content="이진탐색(Binary Search)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/instacode.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="이진탐색(Binary Search)">
+  <meta name="twitter:description" content="📍개념">
+  <meta name="twitter:image" content="http://localhost:4000/assets/instacode.png">
+  <meta name="twitter:url" content="http://localhost:4000/algorithm/2023/02/26/binary-search.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2023/02/26/binary-search.html">
+	<link rel="alternate" type="application/rss+xml" title="HTIL" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="HTIL">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/instacode.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">이진탐색(Binary Search)</h1>
+      <p class="info">by <strong>hyobbeee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">February 26, 2023</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/algorithm">Algorithm</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="개념">📍개념</h2>
+
+<p>이진 탐색이란 정렬된 리스트에서 검색 범위를 줄여나가면서 검색 값을 찾는 알고리즘이다.</p>
+
+<p>이진 탐색은 정렬된 <strong>리스트에서만 사용</strong>할 수 있다는 단점이 있지만, 검색이 반복될 때마다 검색 범위가 절반으로 줄기 때문에 <strong>속도가 빠르다</strong>는 장점이 있다.</p>
+
+<h2 id="동작방식">📍동작방식</h2>
+
+<p>이진 탐색 알고리즘은 리스트의 중간 값과 비교하여 검색값을 찾는다.</p>
+
+<p>중간 값을 찾아야 하기 때문에 반드시 정렬된 배열에서만 사용가능하다.</p>
+
+<ol>
+  <li>배열의 중간 값을 가져온다.</li>
+  <li>중간 값과 검색 값을 비교한다.
+    <ol>
+      <li>중간 값이 검색 값과 같으면 종료 <code class="language-plaintext highlighter-rouge">mid = key</code></li>
+      <li>중간 값보다 검색 값이 크다면 중간값 기준 배열의 오른쪽 구간을 대상으로 탐색 <code class="language-plaintext highlighter-rouge">mid &lt; key</code></li>
+      <li>중간 값보다 검색 값이 작다면 중간 값 기준 배열의 왼쪽 구간을 대상으로 탐색한다. <code class="language-plaintext highlighter-rouge">mid &gt; key</code></li>
+    </ol>
+  </li>
+  <li>값을 찾거나 간격이 비어있을 때까지 반복</li>
+</ol>
+
+<h2 id="검색-예시">📍검색 예시</h2>
+
+<p>이진 탐색을 사용하여 key = 32값을 찾는 과정을 보도록 하겠습니다.</p>
+
+<ol>
+  <li>먼저 배열의 가운데를 결정합니다.</li>
+</ol>
+
+<blockquote>
+  <p>mid  = low + (high - low) / 2</p>
+
+</blockquote>
+
+<p><img src="https://blog.kakaocdn.net/dn/cqSVub/btq5lyj0hdx/uueqouAwXkPUcQGJrFgEo0/img.png" alt="https://blog.kakaocdn.net/dn/cqSVub/btq5lyj0hdx/uueqouAwXkPUcQGJrFgEo0/img.png" /></p>
+
+<ol>
+  <li>중앙 값과 검색 값을 비교합니다.</li>
+</ol>
+
+<p>A [4] &lt; key 이므로 배열의 오른쪽 구간을 검색 범위로 정합니다.</p>
+
+<blockquote>
+  <p>low = mid + 1</p>
+
+</blockquote>
+
+<p>= 0 + (9 - 0) / 2</p>
+
+<p>= 4</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/3SLNJ/btq5ffT6iar/WLKlWZO792tJTWVVNbXP5K/img.png" alt="https://blog.kakaocdn.net/dn/3SLNJ/btq5ffT6iar/WLKlWZO792tJTWVVNbXP5K/img.png" /></p>
+
+<ol>
+  <li>중앙 값을 결정합니다.</li>
+</ol>
+
+<blockquote>
+  <p>mid = 5+ (9-5)/2</p>
+
+</blockquote>
+
+<p>= 7</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/cTdRoI/btq5fDmvXe8/5zi2DU9psPgWYAVaLcZvGK/img.png" alt="https://blog.kakaocdn.net/dn/cTdRoI/btq5fDmvXe8/5zi2DU9psPgWYAVaLcZvGK/img.png" /></p>
+
+<ol>
+  <li>중앙 값과 검색 값을 비교합니다.</li>
+</ol>
+
+<p>A [7] &gt; key 이므로 배열의 왼쪽 구간을 탐색 범위로 정합니다.</p>
+
+<blockquote>
+  <p>high = mid -1</p>
+
+</blockquote>
+
+<p>= 7 - 1</p>
+
+<p>= 6</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/KjVE5/btq5gvPmCiP/uTyoNRu1MuoKkgXpGb6ckK/img.png" alt="https://blog.kakaocdn.net/dn/KjVE5/btq5gvPmCiP/uTyoNRu1MuoKkgXpGb6ckK/img.png" /></p>
+
+<ol>
+  <li>중앙 값을 결정합니다.</li>
+</ol>
+
+<blockquote>
+  <p>mid = 5 + (6-5)/2</p>
+
+</blockquote>
+
+<p>=  5</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/0vmuK/btq5gvBOldB/xeNJojg5kJyJpFNi3jL3t1/img.png" alt="https://blog.kakaocdn.net/dn/0vmuK/btq5gvBOldB/xeNJojg5kJyJpFNi3jL3t1/img.png" /></p>
+
+<ol>
+  <li>중앙 값과 검색 값을 비교합니다.</li>
+</ol>
+
+<p>A [5] = key 이므로 탐색을 종료합니다.</p>
+
+<h2 id="시간복잡도">📍시간복잡도</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Search</td>
+      <td>O(1)</td>
+      <td>Θ(log n)</td>
+      <td>O(log n)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="종료조건">📍종료조건</h2>
+
+<p>이진 탐색의 종료 조건은 두 가지가 있다.</p>
+
+<p>다음 조건중 하나라도 성립하면 검색을 종료한다.</p>
+
+<ol>
+  <li>검색을 성공할 경우</li>
+</ol>
+
+<ul>
+  <li>리스트에서 검색할 값과 같은 요소를 발견한 경우</li>
+  <li>a [mid] == key</li>
+</ul>
+
+<p><img src="https://blog.kakaocdn.net/dn/EZfk8/btq5ffsWrSC/ISKOrApAubQrddI0WxYCuk/img.png" alt="검색 성공" /></p>
+
+<p>검색 성공</p>
+
+<ol>
+  <li>검색을 실패한 경우</li>
+</ol>
+
+<ul>
+  <li>더 이상 검색할 범위가 없을 경우</li>
+  <li>low &gt; high</li>
+</ul>
+
+<p><img src="https://blog.kakaocdn.net/dn/u6MTp/btq5nbhLRfO/U66KTWbCgzh6Cq3780ZgN0/img.png" alt="검색 실패" /></p>
+
+<p>검색 실패</p>
+
+<h2 id="구현">📍구현</h2>
+
+<blockquote>
+  <p>입출력 예시</p>
+
+</blockquote>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">base</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">sample</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">isSubsetOf</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">sample</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; true</span>
+
+<span class="nx">sample</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">];</span>
+<span class="nx">output</span> <span class="o">=</span> <span class="nx">isSubsetOf</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">sample</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; false</span>
+
+<span class="nx">base</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">7</span><span class="p">];</span>
+<span class="nx">sample</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">123</span><span class="p">];</span>
+<span class="nx">output</span> <span class="o">=</span> <span class="nx">isSubsetOf</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">sample</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; false</span>
+</code></pre></div></div>
+
+<ol>
+  <li>이진 탐색을 활용한 구현</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">isSubsetOf</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">sample</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// base 오름차순으로 정렬</span>
+  <span class="nx">base</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+  
+  <span class="c1">// sample 배열의 모든 요소가 base 배열에 포함되는지</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">sample</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 이진 검색을 사용하여 해당 요소가 base 배열에 존재하는지</span>
+    <span class="kd">let</span> <span class="nx">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">base</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">found</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">left</span> <span class="o">&lt;=</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 이진 검색 활용</span>
+      <span class="kd">let</span> <span class="nx">mid</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">left</span> <span class="o">+</span> <span class="nx">right</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">base</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span> <span class="o">===</span> <span class="nx">sample</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">found</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">base</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">sample</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">left</span> <span class="o">=</span> <span class="nx">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">right</span> <span class="o">=</span> <span class="nx">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">found</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// sample 배열의 요소가 base 배열에 포함x</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="c1">// sample 배열의 모든 요소가 base 배열에 포함o</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>시간 복잡도를 고려하지 않은 경우 includes 메서드를 이용해 좀 더 간결하게 작성할 수 있다.</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">isSubsetOf</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">sample</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// sample 배열의 모든 요소가 base 배열에 포함되는지</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">sample</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">base</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">sample</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="c1">// sample 배열의 요소가 base 배열에 포함되지 않으면</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="c1">// sample 배열의 모든 요소가 base 배열에 포함되면</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/TIL">TIL</a>,&nbsp;<a href="/tag/algorithm">algorithm</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">HTIL</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:yjh5799@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">yjh5799@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/hyobbeee" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">hyobbeee</span>
+            </a>
+          </li>
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">hyobbeee.github.io
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

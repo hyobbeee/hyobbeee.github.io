@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>node.js / 3rd-party 모듈</title>
+  <meta name="description" content="  학습목표          Node.js 내장 모듈을 사용할 수 있다.      서드 파티 모듈 (3rd-party module)을 활용할 수 있다.      Node.js 공식 문서를 활용하여 fs.readFile을 이용할 수 있다.      ">
+  
+  <meta name="author" content="윤종협">
+  <meta name="copyright" content="&copy; 윤종협 2023">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="  학습목표          Node.js 내장 모듈을 사용할 수 있다.      서드 파티 모듈 (3rd-party module)을 활용할 수 있다.      Node.js 공식 문서를 활용하여 fs.readFile을 이용할 수 있다.      " />
+  <meta property="og:url" content="http://localhost:4000/node.js/2023/01/24/3rd-party-module.html">
+  <meta property="og:site_name" content="HTIL" />
+  <meta property="og:title" content="node.js / 3rd-party 모듈" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/instacode.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="node.js / 3rd-party 모듈">
+  <meta name="twitter:description" content="  학습목표          Node.js 내장 모듈을 사용할 수 있다.      서드 파티 모듈 (3rd-party module)을 활용할 수 있다.      Node.js 공식 문서를 활용하여 fs.readFile을 이용할 수 있다.      ">
+  <meta name="twitter:image" content="http://localhost:4000/assets/instacode.png">
+  <meta name="twitter:url" content="http://localhost:4000/node.js/2023/01/24/3rd-party-module.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/node.js/2023/01/24/3rd-party-module.html">
+	<link rel="alternate" type="application/rss+xml" title="HTIL" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="HTIL">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/instacode.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">node.js / 3rd-party 모듈</h1>
+      <p class="info">by <strong>hyobbeee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">January 24, 2023</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/Node.js">Node.js</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <ul>
+  <li>학습목표
+    <ul>
+      <li>Node.js 내장 모듈을 사용할 수 있다.</li>
+      <li>서드 파티 모듈 (3rd-party module)을 활용할 수 있다.</li>
+      <li>Node.js 공식 문서를 활용하여 <code class="language-plaintext highlighter-rouge">fs.readFile</code>을 이용할 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+<h1 id="nodejs">Node.js</h1>
+
+<h2 id="개념">📍개념</h2>
+
+<p>Node.js는 Chrome V8 JavaScript 엔진으로 빌드 된 JavaScript 런타임이다.
+즉, 노드를 통해 다양한 자바스크립트 애플리케이션을 실행할 수 있으며, 서버를 실행하는데 많이 이용됨.</p>
+<aside>
+  🎃 자신이 이해하는 범위만큼 모듈을 쓸 수 있음..
+</aside>
+
+<h2 id="사용법">📍사용법</h2>
+
+<p>파일을 읽을 때 : <code class="language-plaintext highlighter-rouge">readFile</code> 이라는 메서드</p>
+
+<p>파일을 저장할 때 : <code class="language-plaintext highlighter-rouge">writeFile</code> 이라는 메서드(<code class="language-plaintext highlighter-rouge">saveFile</code> 메서드를 써야할 것 같지만 없음)</p>
+
+<p>모든 모듈은 ‘모듈을 사용하기 위해 불러오는 과정’이 필요</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">불러오고싶은_스크립트.js</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>Node.js 에서는 javascript 코드 가장 상단에 <code class="language-plaintext highlighter-rouge">require</code> 구문을 이용해 다른 파일을 불러옴</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 파일 시스템 모듈 호출</span>
+<span class="kd">const</span> <span class="nx">dns</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">dns</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// DNS 모듈 호출</span>
+
+<span class="c1">// 호출 후 fs.readFile 메서드 등을 사용 가능</span>
+</code></pre></div></div>
+<p><br /></p>
+<h1 id="3rd-party-모듈을-사용하는-법">3rd-party 모듈을 사용하는 법</h1>
+
+<h2 id="개념-1">📍개념</h2>
+
+<p>해당 프로그래밍 언어에서 공식적으로 제공하는 빌트인 모듈이 아닌 모든 외부 모듈을 일컫는다.</p>
+
+<h2 id="사용법-1">📍사용법</h2>
+
+<p>예시로 <code class="language-plaintext highlighter-rouge">underscore</code>이 있는데 Node.js 공식문서에 없는 모듈이어서 서드파티 모듈임 → 다운을 위해선 npm 사용해야함</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">underscore</span>
+</code></pre></div></div>
+
+<p>이후 Node.js 내장 모듈을 사용하듯 <code class="language-plaintext highlighter-rouge">require</code> 구문을 통해 호출 가능</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">underscore</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+<p><br /></p>
+<h1 id="공식-문서-읽는법">공식 문서 읽는법</h1>
+
+<h2 id="fsreadfilepath-options-callback">fs.readFile(path[, options], callback)</h2>
+
+<p>메서드 <code class="language-plaintext highlighter-rouge">fs.readFile</code>은 <strong>비동기적</strong>으로 파일 내용 전체를 읽는다.</p>
+
+<h3 id="---path--string--buffer--url--integer">-  path : &lt;string&gt; | &lt;Buffer&gt; | &lt;URL&gt; | &lt;integer&gt;</h3>
+
+<p>path에는 파일이름을 전달인자로 받는데, 네 가지 종류의 타입을 넘길 수 있지만 일반적으로 문자열 타입 사용</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="dl">'</span><span class="s1">/etc/passwd</span><span class="dl">'</span><span class="p">,</span> <span class="p">...,</span> <span class="p">...)</span>
+</code></pre></div></div>
+
+<h3 id="--options--object--string">- options : &lt;Object&gt; | &lt;string&gt;</h3>
+
+<p>대괄호로 감싼 두번째 전달인자는 선택적 전달인자를 의미함</p>
+
+<p>options은 문자열 또는 객체 형태로 받을 수 있다.</p>
+
+<p>문자열로 전달할 경우 인코딩을 받음.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// /etc/passwd 파일을 'utf8'을 사용하여 읽습니다.</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="dl">'</span><span class="s1">/etc/passwd</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">,</span> <span class="p">...);</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">encoding</span><span class="p">:</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// utf8 인코딩 방식으로 엽니다</span>
+  <span class="na">flag</span><span class="p">:</span> <span class="dl">'</span><span class="s1">r</span><span class="dl">'</span> <span class="c1">// 읽기 위해 엽니다</span>
+<span class="p">}</span>
+
+<span class="c1">// /etc/passwd 파일을 options를 사용하여 읽습니다.</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="dl">'</span><span class="s1">/etc/passwd</span><span class="dl">'</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div></div>
+
+<h3 id="--callback-function">- callback &lt;Function&gt;</h3>
+
+<p>마지막인자는 콜백함수를 전달함. 파일을 읽고 난 후 비동기적으로 실행되는 함수</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">err</code> &lt;Error&gt; | &lt;AggregateError&gt;</li>
+  <li><code class="language-plaintext highlighter-rouge">data</code> &lt;string&gt; | &lt;Buffer&gt;</li>
+</ul>
+
+<p>콜백함수에는 두가지 매개변수 있는데, 에러 발생하지 않으면 <code class="language-plaintext highlighter-rouge">err</code>은 <code class="language-plaintext highlighter-rouge">null</code>이 되며, <code class="language-plaintext highlighter-rouge">data</code>에 문자열이나 <code class="language-plaintext highlighter-rouge">Buffer</code> 라는 객체가 전달됨.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="dl">'</span><span class="s1">test.txt</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span> <span class="c1">// 에러를 던집니다.</span>
+  <span class="p">}</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/TIL">TIL</a>,&nbsp;<a href="/tag/Node.js">Node.js</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">HTIL</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:yjh5799@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">yjh5799@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/hyobbeee" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">hyobbeee</span>
+            </a>
+          </li>
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">hyobbeee.github.io
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>자바스크립트 this</title>
+  <meta name="description" content="📍개념">
+  
+  <meta name="author" content="윤종협">
+  <meta name="copyright" content="&copy; 윤종협 2023">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="📍개념" />
+  <meta property="og:url" content="http://localhost:4000/javascript/2023/02/12/javascript-this.html">
+  <meta property="og:site_name" content="HTIL" />
+  <meta property="og:title" content="자바스크립트 this" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/instacode.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="자바스크립트 this">
+  <meta name="twitter:description" content="📍개념">
+  <meta name="twitter:image" content="http://localhost:4000/assets/instacode.png">
+  <meta name="twitter:url" content="http://localhost:4000/javascript/2023/02/12/javascript-this.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/javascript/2023/02/12/javascript-this.html">
+	<link rel="alternate" type="application/rss+xml" title="HTIL" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="HTIL">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/instacode.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">자바스크립트 this</h1>
+      <p class="info">by <strong>hyobbeee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">February 12, 2023</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/JavaScript">Javascript</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="개념">📍개념</h2>
+
+<p>자바스크립트 내에서 this는 ‘누가 나를 불렀느냐’ 를 뜻한다고 한다.</p>
+
+<p>→ 선언이 아닌 호출에 따라 달라진다.</p>
+
+<h2 id="종류">📍종류</h2>
+
+<h3 id="1-단독-this">1. 단독 this</h3>
+
+<p>아묻따 this를 호출하는 경우 global object를 가리킨다.</p>
+
+<p>브라우저에서 호출하는 경우 : <code class="language-plaintext highlighter-rouge">[object Window]</code></p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc654a79-6777-49ab-84bf-e9ba3dadc953/Untitled.png" alt="Untitled" /></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">'</span><span class="s1">use strict</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// Window</span>
+</code></pre></div></div>
+
+<h3 id="2-함수-안-this">2. 함수 안 this</h3>
+
+<p>함수 안에서 this는 함수의 주인에게 바인딩 된다.</p>
+
+<p>함수의 주인은 window 객체이다. (단독 this와 같음)</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myFunction</span><span class="p">());</span> <span class="c1">// Window</span>
+</code></pre></div></div>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">addNum</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="nx">num</span><span class="o">++</span><span class="p">;</span>
+
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span> <span class="c1">// 101</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">num</span><span class="p">)</span> <span class="c1">// 101</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span> <span class="o">===</span> <span class="nb">window</span><span class="p">.</span><span class="nx">num</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="p">}</span>
+
+<span class="nx">addNum</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>위 코드에서 this.num의 this는 window 객체를 가리킨다.</p>
+
+<p>따라서 num은 전역 변수를 가리키게 된다.</p>
+
+<p>다만 strict mode에서는 조금 다르다.</p>
+
+<p>함수 내의 this에 디폴트 바인딩이 없기 때문에 undefined가 된다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+ 
+<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myFunction</span><span class="p">());</span> <span class="c1">//undefined</span>
+</code></pre></div></div>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+ 
+<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">addNum</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">//ERROR! Cannot set property 'num' of undefined</span>
+  <span class="nx">num</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="nx">addNum</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>따라서 this.num을 호출하면 undefined.num을 호출하는 것과 같기 때문에 에러가 난다.</p>
+
+<h3 id="3-매서드-안-this">3. 매서드 안 this</h3>
+
+<p>일반 함수가 아닌 매서드에서는</p>
+
+<p>매서드 호출 시 매서드 내부 코드에서 사용된 this 해당 매서드를 호출한 객체로 바인딩 된다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">firstName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">coding</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">lastName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Kim</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">fullName</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+	<span class="p">},</span>
+<span class="p">};</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">fullName</span><span class="p">();</span> <span class="c1">// 여기서는 person이 호출 객체이다.</span>
+</code></pre></div></div>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">showNum</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">num</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">showNum</span><span class="p">();</span> <span class="c1">// 0</span>
+
+<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">num</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+	<span class="na">func</span><span class="p">:</span> <span class="nx">showNum</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">func</span><span class="p">();</span> <span class="c1">// 200</span>
+</code></pre></div></div>
+
+<h3 id="4-이벤트-핸들러-안-this">4. 이벤트 핸들러 안 this</h3>
+
+<p>이벤트 핸들러에서 this는 이벤트를 받는 HTML 요소를 가리킨다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">btn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#btn</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">btn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// #btn</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="5-생성자-안-this">5. 생성자 안 this</h3>
+
+<p>생성자 함수가 생성하는 객체로 this가 바인딩 된다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">kim</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">lee</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">Kim</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">kim</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Lee</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lee</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Kim</span>
+</code></pre></div></div>
+
+<h3 id="6-명시적-바인딩을-한-this">6. 명시적 바인딩을 한 this</h3>
+
+<p>명시적 바인딩은 짝을 지어주는 것이다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">apply()</code> 와 <code class="language-plaintext highlighter-rouge">call()</code> 메서드는 Function Object에 기본적으로 정의된 매서드인데, 인자를 this로 만들어 주는 기능을 한다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">whoisThis</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">whoisThis</span><span class="p">();</span> <span class="c1">// Window</span>
+
+<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">x</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="nx">whoisThis</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// {x: 123}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">apply()</code> 에서 매개변수로 받은 첫번째 값은 함수 내부에서 사용되는 this에 바인딩되고,</p>
+
+<p>두번째 값인 배열은 자신을 호출한 함수의 인자로 사용한다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Character</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">level</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">level</span> <span class="o">=</span> <span class="nx">level</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">Player</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">level</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">level</span> <span class="o">=</span> <span class="nx">level</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">job</span> <span class="o">=</span> <span class="nx">job</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이렇게 두 생성자 함수가 있을 때 this.name과 this.level을 받아오는 부분이 같은 경우</p>
+
+<p><code class="language-plaintext highlighter-rouge">apply()</code> 를 사용할 수 있다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Character</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">level</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">level</span> <span class="o">=</span> <span class="nx">level</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kd">function</span> <span class="nx">Player</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">level</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Character</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">[</span><span class="nx">name</span><span class="p">,</span> <span class="nx">level</span><span class="p">]);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">job</span> <span class="o">=</span> <span class="nx">job</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kd">let</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Player</span><span class="p">(</span><span class="dl">'</span><span class="s1">Kim</span><span class="dl">'</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="dl">'</span><span class="s1">developer</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">me</span><span class="p">)</span> <span class="c1">// Player {name: 'Kim', level: 27, job: 'developer'}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">call()</code> 도 <code class="language-plaintext highlighter-rouge">apply()</code>와 거의 같다.</p>
+
+<p>차이점이 있다면 <code class="language-plaintext highlighter-rouge">call()</code> 은 인수 목록을 받고 <code class="language-plaintext highlighter-rouge">apply()</code> 는 인수 배열을 받는다는 차이가 있다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Character</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">level</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">level</span> <span class="o">=</span> <span class="nx">level</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">Player</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">level</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">Character</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">level</span><span class="p">);</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">job</span> <span class="o">=</span> <span class="nx">job</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">me</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">Player</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">me</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Kim</span><span class="dl">'</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="dl">'</span><span class="s1">developer</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">apply()</code>  나 <code class="language-plaintext highlighter-rouge">call()</code> 은 보통 유사배열 객체에게 배열 매서드를 쓰고자 할 때 사용한다.</p>
+
+<p>예를 들어 arguments 객체는 함수에 전달된 인수를 Array 형태로 보여주지만 배열 매서드를 쓸 수가 없다.</p>
+
+<p>이 경우에 SSG 사용 가능하다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">func</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+
+	<span class="nx">arguments</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi!</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// TypeError (arguments.push is not a function)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">func</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">let</span> <span class="nx">args</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+	<span class="nx">args</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi!</span><span class="dl">'</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">args</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// [ 1, 2, 3, 'hi!' ]</span>
+</code></pre></div></div>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="mi">0</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Kim</span><span class="dl">'</span><span class="p">,</span>
+	<span class="mi">1</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span><span class="p">,</span>
+	<span class="mi">2</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Yun</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">length</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">push</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Park</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span> <span class="c1">// {0: 'Kim', 1: 'Lee', 2: 'Yun', 3: 'Park', length: 4}</span>
+</code></pre></div></div>
+
+<ul>
+  <li></li>
+</ul>
+
+<p>ES6부터  <code class="language-plaintext highlighter-rouge">Array.from()</code> 이라는 매서드 사용가능하다.</p>
+
+<p>유사배열객체를 얕게 복사해 새 Array 객체로 만든다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">children</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">children</span><span class="p">;</span> <span class="c1">// HTMLCollection</span>
+
+<span class="nx">children</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// forEach: 함수를 주어진 배열요소 각각에 실행함</span>
+	<span class="nx">el</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">'</span><span class="s1">on</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// ERROR (children.forEach is not a function)</span>
+</code></pre></div></div>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">children</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">children</span><span class="p">;</span> <span class="c1">// HTMLCollection</span>
+
+<span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">children</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">el</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">'</span><span class="s1">on</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="7-화살표-함수로-쓴-this">7. 화살표 함수로 쓴 this</h3>
+
+<p>함수 안에서 this가 왜 전역 객체가 되는지 모르겠으면 화살표 함수를 쓰면 된다.</p>
+
+<p>화살표 함수는 전역 컨텍스트에서 실행되더라도 this를 새로 정의하지 않고, 바로 바깥 함수나 클래스의 this를 쓰기 때문이다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">Person</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">say</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// Person {name: "Nana", age: 28}</span>
+ 
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// Window</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> is </span><span class="dl">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> years old</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">100</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+<span class="kd">let</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">Nana</span><span class="dl">'</span><span class="p">,</span> <span class="mi">28</span><span class="p">);</span>
+ 
+<span class="nx">me</span><span class="p">.</span><span class="nx">say</span><span class="p">();</span> <span class="c1">//global is undefined years old</span>
+</code></pre></div></div>
+
+<p>위 코드를 보면 내부 함수에서 this가 전역 객체를 가리키는 바람에 의도와는 다른 결과가 나왔다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">Person</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">say</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// Person {name: "Nana", age: 28}</span>
+ 
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// Person {name: "Nana", age: 28}</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> is </span><span class="dl">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> years old</span><span class="dl">'</span><span class="p">);</span> 
+    <span class="p">},</span> <span class="mi">100</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+<span class="kd">let</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">Nana</span><span class="dl">'</span><span class="p">,</span> <span class="mi">28</span><span class="p">);</span> <span class="c1">//Nana is 28 years old</span>
+</code></pre></div></div>
+
+<p>화살표 함수로 바꾸면 결과 제대로 나온다.</p>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/TIL">TIL</a>,&nbsp;<a href="/tag/JavaScript">JavaScript</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">HTIL</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:yjh5799@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">yjh5799@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/hyobbeee" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">hyobbeee</span>
+            </a>
+          </li>
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">hyobbeee.github.io
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Centrarium</title>
-    <description>A simple yet classy theme for your Jekyll website or blog.
+    <title>HTIL</title>
+    <description>hyobbeee.github.io
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Mar 2023 21:20:16 +0900</pubDate>
-    <lastBuildDate>Sat, 04 Mar 2023 21:20:16 +0900</lastBuildDate>
+    <pubDate>Sat, 04 Mar 2023 22:36:17 +0900</pubDate>
+    <lastBuildDate>Sat, 04 Mar 2023 22:36:17 +0900</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
     
       <item>
         <title>두 수를 입력 받아 거듭제곱 리턴</title>
-        <description>&lt;h2 id=&quot;summary&quot;&gt;📍summary&lt;/h2&gt; &lt;p&gt;초기에는 간단하게 for문만 이용해 지수만큼 밑을 곱하는 방식으로 구해봤지만 일부 테스트가 통과가 안되어 다시 재귀를 이용해 풀고 코드 정리겸 작성해 보았다.&lt;/p&gt; &lt;p&gt;&lt;del&gt;여태 거듭제곱시 사용하던 메서드 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math.pow&lt;/code&gt;...</description>
+        <description>&lt;h2 id=&quot;summary&quot;&gt;📍summary&lt;/h2&gt; &lt;p&gt;초기에는 간단하게 for문만 이용해 지수만큼 밑을 곱하는 방식으로 구해봤지만 일부 테스트가 통과가 안되어 다시 재귀를 이용해 풀고 코드 정리겸 작성해 보았다.&lt;/p&gt; &lt;p&gt;(여태 거듭제곱시 사용하던 메서드 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math.pow&lt;/code&gt;...</description>
         <pubDate>Fri, 03 Mar 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2023/03/03/power.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/03/03/power.html</guid>
+        <link>http://localhost:4000/algorithm/2023/03/03/power.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2023/03/03/power.html</guid>
         
         <category>TIL</category>
         
         <category>algorithm</category>
         
+        
+        <category>algorithm</category>
         
       </item>
     
@@ -28,13 +30,15 @@
         <title>Ajax, axios, fetch 비교, 장단점 정리</title>
         <description>&lt;h1 id=&quot;ajax&quot;&gt;Ajax&lt;/h1&gt; &lt;h3 id=&quot;개념&quot;&gt;📍개념&lt;/h3&gt; &lt;p&gt;Asynchronous Javascript And XML의 약자로,&lt;/p&gt; &lt;p&gt;비동기적으로 JS를 사용해서 데이터를 받아와 동적으로 DOM을 갱신 및 조작하는 웹 개발 기법&lt;/p&gt; &lt;p&gt;여기서 XML이 있는 이유는 과거 데이터 포맷으로 XML을...</description>
         <pubDate>Wed, 01 Mar 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2023/03/01/ajax-axios-fetch.md.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/03/01/ajax-axios-fetch.md.html</guid>
+        <link>http://localhost:4000/web/2023/03/01/ajax-axios-fetch.md.html</link>
+        <guid isPermaLink="true">http://localhost:4000/web/2023/03/01/ajax-axios-fetch.md.html</guid>
         
         <category>TIL</category>
         
         <category>WEB</category>
         
+        
+        <category>WEB</category>
         
       </item>
     
@@ -42,28 +46,24 @@
         <title>동적 계획법(Dynamic Programing)</title>
         <description>&lt;h2 id=&quot;개념&quot;&gt;📍개념&lt;/h2&gt; &lt;p&gt;처음 진행되는 연산은 기록해두고, 이미 진행했던 연산이라면 다시 연산하는 것이 아니라 기록된 값을 가져오는 방식&lt;/p&gt; &lt;p&gt;→ &lt;strong&gt;큰 문제를 작은 문제로 쪼개서 그 답을 저장해두고 재활용하는 것&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;del&gt;Richad Bellman이...</description>
         <pubDate>Tue, 28 Feb 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2023/02/28/dynamic-programing.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/02/28/dynamic-programing.html</guid>
+        <link>http://localhost:4000/algorithm/2023/02/28/dynamic-programing.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2023/02/28/dynamic-programing.html</guid>
         
         <category>TIL</category>
-        
-        <category>JavaScript</category>
         
         <category>algorithm</category>
         
         
+        <category>algorithm</category>
+        
       </item>
     
       <item>
-        <title>! vs !!</title>
-        <description>&lt;p&gt;조건문을 사용하다 보면,&lt;/p&gt; &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~~~&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt; &lt;p&gt;와 같이 부정의 의미를 나타내는 의미로 !를 사용하게 된다.&lt;/p&gt; &lt;p&gt;!를 사용함으로써, 조건문 안의 값이...</description>
+        <title>!vs!!</title>
+        <description>&lt;hr /&gt; &lt;p&gt;layout: post title: “! vs !!” date: 2023-02-27 author: hyobbeee categories: JavaScript tags: TIL JavaScript cover: “/assets/instacode.png”&lt;/p&gt; &lt;p&gt;조건문을 사용하다 보면,&lt;/p&gt; &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span...</description>
         <pubDate>Mon, 27 Feb 2023 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/2023/02/27/!vs!!.html</link>
         <guid isPermaLink="true">http://localhost:4000/2023/02/27/!vs!!.html</guid>
-        
-        <category>TIL</category>
-        
-        <category>JavaScript</category>
         
         
       </item>
@@ -72,13 +72,15 @@
         <title>이진탐색(Binary Search)</title>
         <description>&lt;h2 id=&quot;개념&quot;&gt;📍개념&lt;/h2&gt; &lt;p&gt;이진 탐색이란 정렬된 리스트에서 검색 범위를 줄여나가면서 검색 값을 찾는 알고리즘이다.&lt;/p&gt; &lt;p&gt;이진 탐색은 정렬된 &lt;strong&gt;리스트에서만 사용&lt;/strong&gt;할 수 있다는 단점이 있지만, 검색이 반복될 때마다 검색 범위가 절반으로 줄기 때문에...</description>
         <pubDate>Sun, 26 Feb 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2023/02/26/binary-search.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/02/26/binary-search.html</guid>
+        <link>http://localhost:4000/algorithm/2023/02/26/binary-search.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2023/02/26/binary-search.html</guid>
         
         <category>TIL</category>
         
         <category>algorithm</category>
         
+        
+        <category>algorithm</category>
         
       </item>
     
@@ -86,13 +88,15 @@
         <title>정렬(bubble, insertion, selection) 알고리즘</title>
         <description>&lt;h2 id=&quot;summary&quot;&gt;🙀summary&lt;/h2&gt; &lt;p&gt;무작위로 섞여 있는 데이터를 어떤 기준에 맞춰 정렬하는 알고리즘은 여러개가 있다.&lt;/p&gt; &lt;p&gt;자바스크립트에는 이미 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sort()&lt;/code&gt; 라는 메소드가 이미 존재한다. 하지만 퍼포먼스가 보장 되지 않기 때문에 유명한 정렬...</description>
         <pubDate>Sat, 25 Feb 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2023/02/25/%EC%A0%95%EB%A0%AC-bubble,selection,insertion.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/02/25/%EC%A0%95%EB%A0%AC-bubble,selection,insertion.html</guid>
+        <link>http://localhost:4000/algorithm/2023/02/25/%EC%A0%95%EB%A0%AC-bubble,selection,insertion.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2023/02/25/%EC%A0%95%EB%A0%AC-bubble,selection,insertion.html</guid>
         
         <category>TIL</category>
         
         <category>algorithm</category>
         
+        
+        <category>algorithm</category>
         
       </item>
     
@@ -100,13 +104,15 @@
         <title>CORS</title>
         <description>&lt;h3 id=&quot;탄생배경&quot;&gt;탄생배경&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;고차 컴포넌트와 render props로 인한 코드 추적의 어려움을 해결하기 위함&lt;/li&gt; &lt;/ul&gt; &lt;h3 id=&quot;특징&quot;&gt;특징&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;컴포넌트로부터 상태 관련 로직을 추상화 ⇒ 테스트와 재사용이 가능&lt;/li&gt; &lt;li&gt;&lt;strong&gt;계층의 변화 없이 상태...</description>
         <pubDate>Mon, 20 Feb 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2023/02/20/react-hook.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/02/20/react-hook.html</guid>
+        <link>http://localhost:4000/react/2023/02/20/react-hook.html</link>
+        <guid isPermaLink="true">http://localhost:4000/react/2023/02/20/react-hook.html</guid>
         
         <category>TIL</category>
         
-        <category>web</category>
+        <category>React</category>
         
+        
+        <category>React</category>
         
       </item>
     
@@ -114,13 +120,15 @@
         <title>CORS</title>
         <description>&lt;h3 id=&quot;corscross-origin-resource-sharing--외부-출처-자원-공유&quot;&gt;📍&lt;strong&gt;CORS(Cross Origin Resource Sharing) : 외부 출처 자원 공유&lt;/strong&gt;&lt;/h3&gt; &lt;aside&gt; 🤖 외부 출처 자원 공유(CORS)는 웹 애플리케이션이 원래 도메인 외부의 다른 도메인에서 자원을 사용할 수 있는 메커니즘이다. &lt;/aside&gt; &lt;p&gt;이는...</description>
         <pubDate>Mon, 20 Feb 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2023/02/20/CORS.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/02/20/CORS.html</guid>
+        <link>http://localhost:4000/algorithm/2023/02/20/CORS.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2023/02/20/CORS.html</guid>
         
         <category>TIL</category>
         
-        <category>web</category>
+        <category>algorithm</category>
         
+        
+        <category>algorithm</category>
         
       </item>
     
@@ -128,13 +136,15 @@
         <title>use strict란</title>
         <description>&lt;h2 id=&quot;개념&quot;&gt;📍개념&lt;/h2&gt; &lt;p&gt;일부 기능을 제한한다는 의미, 오류 방지 목적을 가지며 단점보다는 장점이 많다.&lt;/p&gt; &lt;h3 id=&quot;장점&quot;&gt;🔹장점&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;의도하지 않은 전역변수가 선언되지 못하도록 한다.&lt;/li&gt; &lt;li&gt;삭제할 수 없는 속성을 삭제하려고 시도하면 오류를 발생시킨다.&lt;/li&gt;...</description>
         <pubDate>Sun, 19 Feb 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2023/02/19/use-strict.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/02/19/use-strict.html</guid>
+        <link>http://localhost:4000/javascript/2023/02/19/use-strict.html</link>
+        <guid isPermaLink="true">http://localhost:4000/javascript/2023/02/19/use-strict.html</guid>
         
         <category>TIL</category>
         
         <category>JavaScript</category>
         
+        
+        <category>JavaScript</category>
         
       </item>
     
@@ -142,13 +152,13 @@
         <title>의사코드(pseudo-code)</title>
         <description>&lt;h2 id=&quot;개념&quot;&gt;📍개념&lt;/h2&gt; &lt;p&gt;의사(疑似: 비교할 의, 비슷할 사 / Pseudo: 가짜의) 코드는 컴퓨터 프로그램이나 알고리즘이 수행해야할 내용을 우리가 사용하는 언어로 간략히 서술해 놓은 것.&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;https://www.notion.so/hyobbeee/pseudo-code-02124b81821348a9beba206cbe8a6bad?pvs=4#dcd01016b5db4111b4a27f3a239f5e05&quot; alt=&quot;의사코드 없이 프로그램 작성할 경우...</description>
         <pubDate>Sat, 18 Feb 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2023/02/18/pseudo-code.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/02/18/pseudo-code.html</guid>
+        <link>http://localhost:4000/til/2023/02/18/pseudo-code.html</link>
+        <guid isPermaLink="true">http://localhost:4000/til/2023/02/18/pseudo-code.html</guid>
         
         <category>TIL</category>
         
-        <category>etc</category>
         
+        <category>TIL</category>
         
       </item>
     

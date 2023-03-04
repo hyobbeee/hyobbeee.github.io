@@ -1,14 +1,11 @@
 ---
 layout: post
-read_time: true
-show_date: true
 title:  "동적 계획법(Dynamic Programing)"
 date:   2023-02-28
-description: 재귀함수와의 비교
-img: my_keyboard.jpeg
-tags: [TIL, JavaScript, algorithm]
 author: hyobbeee
-mathjax: yes
+categories: algorithm
+tags: TIL algorithm
+cover:  "/assets/instacode.png"
 ---
 
 ## 📍개념

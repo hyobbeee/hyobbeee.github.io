@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>StatesAirline</title>
+  <meta name="description" content="Part 1: 항공권 목록 필터링">
+  
+  <meta name="author" content="윤종협">
+  <meta name="copyright" content="&copy; 윤종협 2023">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="Part 1: 항공권 목록 필터링" />
+  <meta property="og:url" content="http://localhost:4000/javascript/2023/02/05/states-airline.html">
+  <meta property="og:site_name" content="HTIL" />
+  <meta property="og:title" content="StatesAirline" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/instacode.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="StatesAirline">
+  <meta name="twitter:description" content="Part 1: 항공권 목록 필터링">
+  <meta name="twitter:image" content="http://localhost:4000/assets/instacode.png">
+  <meta name="twitter:url" content="http://localhost:4000/javascript/2023/02/05/states-airline.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/javascript/2023/02/05/states-airline.html">
+	<link rel="alternate" type="application/rss+xml" title="HTIL" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="HTIL">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/instacode.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">StatesAirline</h1>
+      <p class="info">by <strong>hyobbeee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">February 5, 2023</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/JavaScript">Javascript</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h1 id="part-1-항공권-목록-필터링">Part 1: 항공권 목록 필터링</h1>
+
+<p><img src="https://user-images.githubusercontent.com/99409757/216825221-d6d2ad9c-56c2-4718-b338-4d037f9c3f75.png" alt="111" /></p>
+
+<p>첫번째 테스트는 state &amp; props를 활용한 useState 구문으로 해결 가능하고,</p>
+
+<p>두번째 테스트는 SideEffect(함수 내에서 어떤 구현이 외부함수에 영향을 끼치는 경우)를 UseEffect 구문으로 해결할 수 있다.</p>
+
+<h3 id="useeffect-활용법"><code class="language-plaintext highlighter-rouge">UseEffect</code> 활용법</h3>
+
+<ol>
+  <li>
+    <p>빈배열 넣기 : <code class="language-plaintext highlighter-rouge">useEffect(함수, [])</code>  → <a href="https://www.notion.so/0130-HTTP-ea6817eca3d34fd3b4572f20b88659cc">CSR</a> 사용시 사용</p>
+
+    <p>이 경우에는 컴포넌트가 처음 생성될 떄만 effect 함수가 실행된다. → 컴포넌트 생성시 1회 실행</p>
+
+    <ul>
+      <li>
+        <p>필요한 경우</p>
+
+        <p>대표적으로 처음 단 한 번, 외부 API를 통해 리소스를 받아오고 더이상 API 호출이 필요하지 않을 때 사용 가능하다. → AJAX(SPA 방식) 사용시에 적용 가능</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>아무것도 넣지 않기 (기본 형태) : <code class="language-plaintext highlighter-rouge">useEffect(함수)</code> → SSR 사용시 사용</p>
+
+    <p>기본 형태의 useEffect는 state가 업데이트 될 때마다 실행된다. → 다중 실행</p>
+  </li>
+</ol>
+
+<p>(여기서 ajax가 기억이 잘 안나서 다시 정리)</p>
+
+<h3 id="ajax">🚨 ajax</h3>
+
+<p>ajax의 가장 큰 특징은 웹페이지에 필요한 부분에 필요한 데이터만 비동기적으로 받아와 화면에 그려낼 수 있다는 것이다.</p>
+
+<p>브라우저는 Fetch가 서버에 요청을 보내고 응답을 받을때까지 모든 동작을 멈추는 것이 아니라, 계속해서 페이지를 사용할 수 있게 만들어 준다.</p>
+
+<hr />
+
+<h2 id="️mainjs">✔️Main.js</h2>
+
+<p>메인 (부모컴포넌트)에 있는 search함수가search 컴포넌트 (자식컴포넌트)의 검색 버튼 클릭시 실행되어야 한다 - 상태끌어올리기를 사용하자</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Head</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/head</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">getFlight</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../api/FlightDataApi</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">FlightList</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./component/FlightList</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">LoadingIndicator</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./component/LoadingIndicator</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Search</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./component/Search</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Debug</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./component/Debug</span><span class="dl">'</span><span class="p">;</span>
+<span class="c1">// 후반 테스트를 진행할 때 아래 import를 삭제합니다.</span>
+<span class="c1">// fligthList에서 json으로 import 했던것을 주석처리 했는데도 동작해서 테스트 코드가 통과가 안됐었다.</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 항공편 검색 조건을 담고 있는 상태 (condition은 상태 변수이다)</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">condition</span><span class="p">,</span> <span class="nx">setCondition</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">({</span>
+    <span class="na">departure</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ICN</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">});</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">flightList</span><span class="p">,</span> <span class="nx">setFlightList</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span> <span class="c1">// useState(json)은 초기값일 뿐이다. </span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">isLoading</span><span class="p">,</span> <span class="nx">setIsLoading</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span> <span class="c1">// 로딩 상태 설정, 초기값은 false (isLoading = false -&gt; 초기에는 로딩중이 않음)</span>
+
+  <span class="c1">// 주어진 검색 키워드에 따라 condition 상태를 변경시켜주는 함수</span>
+  <span class="kd">const</span> <span class="nx">search</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">departure</span><span class="p">,</span> <span class="nx">destination</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span>
+      <span class="nx">condition</span><span class="p">.</span><span class="nx">departure</span> <span class="o">!==</span> <span class="nx">departure</span> <span class="o">||</span> 
+      <span class="nx">condition</span><span class="p">.</span><span class="nx">destination</span> <span class="o">!==</span> <span class="nx">destination</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// TODO: search 함수가 전달 받아온 '항공편 검색 조건' 인자를 condition 상태에 적절하게 담아보세요.</span>
+      <span class="nx">setCondition</span><span class="p">({</span><span class="nx">departure</span><span class="p">,</span> <span class="nx">destination</span><span class="p">});</span> <span class="c1">// 상태를 변경시켜야 하므로 search의 인자를 받아 condition을 변경시킨다.</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+  <span class="c1">// TODO: Effeck Hook을 이용해 AJAX 요청을 보내보세요.</span>
+  <span class="c1">// TODO: 더불어, 네트워크 요청이 진행됨을 보여주는 로딩 컴포넌트(&lt;LoadingIndicator/&gt;)를 제공해보세요제</span>
+  <span class="c1">// useEffect로 상태를 변화하는 condition을 FlightDataApi의 getflight로 넘겨준다</span>
+
+  <span class="c1">// useEffect(async() =&gt; {</span>
+  <span class="c1">//   setIsLoading(true);</span>
+  <span class="c1">//   setFlightList(await getFlight(condition));</span>
+  <span class="c1">//   setIsLoading(false);</span>
+  <span class="c1">// }, [condition])</span>
+  <span class="c1">// 검색 조건이 바뀔 때마다 useEffect 실행</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">// 외부에서 호출한 값(node.js 환경)으로 내부 상태값(react 환경)을 변경시켜야 하니 side effect로 볼 수 있다. (로컬 함수의 제공값을 이용하는게 아니라 서버의 데이터를 이용함) side effect는 effect hook으로 처리</span>
+    <span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span> <span class="c1">// useEffect가 호출되면 데이터를 받아와야 하니 false 였던 isLoading 상태를 true로 변경시켜준다.</span>
+    <span class="nx">getFlight</span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="c1">// import한 getFlight에서 condition 객체로 필터링을 진행하여 데이터를 추출한 후</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">filtered</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">// 그 데이터(departure, destination)를 이용해 FlightList와 isLoading의 상태를 변경시켜준다.</span>
+      <span class="nx">setFlightList</span><span class="p">(</span><span class="nx">filtered</span><span class="p">);</span> <span class="c1">// flightList에는 받아온 데이터를 넘겨주어 상태를 변경시켜주고</span>
+      <span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span> <span class="c1">// 데이터를 받아왔으니 로딩화면도 종료시켜준다.</span>
+    <span class="p">});</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">condition</span><span class="p">]);</span> <span class="c1">// useEffect의 두번째 인자 [condition]이 변경될 때마다 앞의 콜백 함수가 실행됨. ([]는 컴포넌트 생성시에만 실행됨)</span>
+
+  <span class="c1">// 이전에 사용한 필터 함수 삭제</span>
+  <span class="c1">// const filterByCondition = (flight) =&gt; {</span>
+  <span class="c1">//   let pass = true;</span>
+  <span class="c1">//   if (condition.departure) {</span>
+  <span class="c1">//     pass = pass &amp;&amp; flight.departure === condition.departure;</span>
+  <span class="c1">//   }</span>
+  <span class="c1">//   if (condition.destination) {</span>
+  <span class="c1">//     pass = pass &amp;&amp; flight.destination === condition.destination;</span>
+  <span class="c1">//   }</span>
+  <span class="c1">//   return pass;</span>
+  <span class="c1">// };</span>
+
+  <span class="nb">global</span><span class="p">.</span><span class="nx">search</span> <span class="o">=</span> <span class="nx">search</span><span class="p">;</span> <span class="c1">// 테스트 코드</span>
+
+  <span class="c1">// TODO: 테스트 케이스의 지시에 따라 search 함수를 Search 컴포넌트로 내려주세요.</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nc">Head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>States Airline<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="p">=</span><span class="s">"icon"</span> <span class="na">href</span><span class="p">=</span><span class="s">"/favicon.ico"</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nc">Head</span><span class="p">&gt;</span>
+
+      <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>여행가고 싶을 땐, States Airline<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nc">Search</span> <span class="na">onSearch</span><span class="p">=</span><span class="si">{</span><span class="nx">search</span><span class="si">}</span> <span class="p">/&gt;</span> 
+        <span class="si">{</span><span class="cm">/* Search 컴포넌트에서는 상태변경 함수인 search를 onSearch props로 전달 되어야 한다. */</span><span class="si">}</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"table"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"row-header"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"col"</span><span class="p">&gt;</span>출발<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"col"</span><span class="p">&gt;</span>도착<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"col"</span><span class="p">&gt;</span>출발 시각<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"col"</span><span class="p">&gt;</span>도착 시각<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"col"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="si">{</span><span class="cm">/* &lt;FlightList list={flightList.filter(filterByCondition)} /&gt; */</span><span class="si">}</span>
+          <span class="si">{</span><span class="nx">isLoading</span> <span class="p">?</span> <span class="p">&lt;</span><span class="nc">LoadingIndicator</span> <span class="p">/&gt;</span> <span class="p">:</span> <span class="p">&lt;</span><span class="nc">FlightList</span> <span class="na">list</span><span class="p">=</span><span class="si">{</span><span class="nx">flightList</span><span class="si">}</span> <span class="p">/&gt;</span><span class="si">}</span> 
+          <span class="si">{</span><span class="cm">/* 로딩 중이면 LoadingIndicator, 아니면 FlightList의 list 항목 추출 */</span><span class="si">}</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"debug-area"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nc">Debug</span> <span class="na">condition</span><span class="p">=</span><span class="si">{</span><span class="nx">condition</span><span class="si">}</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">id</span><span class="p">=</span><span class="s">"logo"</span> <span class="na">alt</span><span class="p">=</span><span class="s">"logo"</span> <span class="na">src</span><span class="p">=</span><span class="s">"codestates-logo.png"</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="️searchjs">✔️Search.js</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Search</span><span class="p">({</span><span class="nx">onSearch</span><span class="p">})</span> <span class="p">{</span> <span class="c1">// 상태변경 함수 'search'가 'onSearch' props로 전달되어야 한다. 함수로 받기때문에 { }를 적어줘야한다.</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">textDestination</span><span class="p">,</span> <span class="nx">setTextDestination</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">handleChange</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">// 받아온 인자값 대문자로 만듦</span>
+    <span class="nx">setTextDestination</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
+  <span class="p">};</span>
+
+  <span class="kd">const</span> <span class="nx">handleKeyPress</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">// 엔터 버튼이 눌렸는지 감지하는 이벤트</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">keypress</span><span class="dl">'</span> <span class="o">&amp;&amp;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">code</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">Enter</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 키가 눌렸고, 그게 Enter라면 아래 함수를 실행시킴</span>
+      <span class="nx">handleSearchClick</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="kd">const</span> <span class="nx">handleSearchClick</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">departure</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ICN</span><span class="dl">"</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">destination</span> <span class="o">=</span> <span class="nx">textDestination</span> <span class="o">===</span> <span class="dl">""</span> <span class="p">?</span> <span class="kc">null</span> <span class="p">:</span> <span class="nx">textDestination</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">검색 버튼을 누르거나, 엔터를 치면 search 함수가 실행됩니다</span><span class="dl">'</span><span class="p">);</span>
+    <span class="c1">// TODO: 지시에 따라 상위 컴포넌트에서 props를 받아서 실행시켜 보세요.</span>
+    <span class="c1">// search는 setCondition({departure, destination})을 실행</span>
+    <span class="c1">// 검색 버튼 클릭시 -&gt; onClick -&gt; {handleSearchClick}</span>
+    <span class="nx">onSearch</span><span class="p">({</span><span class="nx">departure</span><span class="p">,</span> <span class="nx">destination</span><span class="p">});</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>공항 코드를 입력하고, 검색하세요<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>출발지<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="p">=</span><span class="s">"input-departure"</span> <span class="na">type</span><span class="p">=</span><span class="s">"text"</span> <span class="na">disabled</span> <span class="na">value</span><span class="p">=</span><span class="s">"ICN"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>도착지<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> <span class="si">{</span><span class="cm">/* 도착지 입력칸 -&gt; 이벤트 함수 3가지 ( handleSearchClick, handleChange, handleKeyPress) */</span><span class="si">}</span>
+      <span class="p">&lt;</span><span class="nt">input</span>
+        <span class="na">id</span><span class="p">=</span><span class="s">"input-destination"</span>
+        <span class="na">type</span><span class="p">=</span><span class="s">"text"</span>
+        <span class="na">value</span><span class="p">=</span><span class="si">{</span><span class="nx">textDestination</span><span class="si">}</span>
+        <span class="na">onChange</span><span class="p">=</span><span class="si">{</span><span class="nx">handleChange</span><span class="si">}</span>
+        <span class="na">placeholder</span><span class="p">=</span><span class="s">"CJU, BKK, PUS 중 하나를 입력하세요"</span>
+        <span class="na">onKeyPress</span><span class="p">=</span><span class="si">{</span><span class="nx">handleKeyPress</span><span class="si">}</span>
+      <span class="p">/&gt;</span> 
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="p">=</span><span class="s">"search-btn"</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">handleSearchClick</span><span class="si">}</span><span class="p">&gt;</span>
+        검색
+      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Search</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h1 id="part-2-ajax-요청">Part 2: AJAX 요청</h1>
+
+<h2 id="️flightdataapijs">✔️FlightDataApi.js</h2>
+
+<p>FlightDataApi에서 기존 구현 대신, REST API를 호출하도록 바꿉니다</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">flightList</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../resource/flightList</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">fetch</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">node-fetch</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// if (typeof window !== 'undefined') {</span>
+<span class="c1">//   localStorage.setItem('flight', JSON.stringify(flightList));</span>
+<span class="c1">// }</span>
+
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">getFlight</span><span class="p">(</span><span class="nx">filterBy</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
+  <span class="c1">// HINT: 가장 마지막 테스트를 통과하기 위해, fetch를 이용합니다. 아래 구현은 완전히 삭제되어도 상관없습니다.</span>
+  <span class="c1">// TODO: 아래 구현을 REST API 호출로 대체하세요.</span>
+
+  <span class="kd">let</span> <span class="nx">queryString</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span> <span class="c1">// queryString 변수 선언</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">filterBy</span><span class="p">.</span><span class="nx">departure</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// filterBy.departure가 호출되면 즉 export한 getFligth이 호출되면 (Main 컴포넌트 참고 -- getFlight(condition))</span>
+    <span class="nx">queryString</span> <span class="o">=</span> <span class="nx">queryString</span> <span class="o">+</span> <span class="s2">`departure=</span><span class="p">${</span><span class="nx">filterBy</span><span class="p">.</span><span class="nx">departure</span><span class="p">}</span><span class="s2">&amp;`</span> <span class="c1">// queryString 에 필터링 된 departure를 json화 시켜서 저장</span>
+  <span class="p">}</span> 
+  <span class="k">if</span> <span class="p">(</span><span class="nx">filterBy</span><span class="p">.</span><span class="nx">destination</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// filterBy.destination이 호출되면 즉 export한 getFlight이 호출되면 (Main 컴포넌트 참고 -- getFlight(condition))</span>
+    <span class="nx">queryString</span> <span class="o">=</span> <span class="nx">queryString</span> <span class="o">+</span> <span class="s2">`destination=</span><span class="p">${</span><span class="nx">filterBy</span><span class="p">.</span><span class="nx">destination</span><span class="p">}</span><span class="s2">`</span> <span class="c1">// queryString에 필터링된 destination도 json화 시켜 저장</span>
+  <span class="p">}</span>
+  <span class="kd">let</span> <span class="nx">endpoint</span> <span class="o">=</span> <span class="s2">`http://ec2-13-124-90-231.ap-northeast-2.compute.amazonaws.com:81/flight?</span><span class="p">${</span><span class="nx">queryString</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span> <span class="c1">// 필터링된 departure와 destination의 값을 담은 queryString을 명시한 url 설정</span>
+
+  <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">endpoint</span><span class="p">)</span>  <span class="c1">// url을 서버에 요청한다.</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span> <span class="c1">// 받아온 데이터를 json화 시켜 저장한다.</span>
+
+<span class="cm">/* 지연 요청 테스트용 코드
+  let json = [];
+  if (typeof window !== 'undefined') {
+    json = localStorage.getItem('flight');
+  }
+  const flight = JSON.parse(json) || [];
+
+  return new Promise((resolve) =&gt; {
+    const filtered = flight.filter((flight) =&gt; {
+      let condition = true;
+      if (filterBy.departure) {
+        condition = condition &amp;&amp; flight.departure === filterBy.departure;
+      }
+      if (filterBy.destination) {
+        condition = condition &amp;&amp; flight.destination === filterBy.destination;
+      }
+      return condition;
+    });
+
+    setTimeout(() =&gt; {
+      resolve(filtered);
+    }, 500);
+  });
+}
+*/</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/TIL">TIL</a>,&nbsp;<a href="/tag/JavaScript">JavaScript</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">HTIL</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:yjh5799@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">yjh5799@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/hyobbeee" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">hyobbeee</span>
+            </a>
+          </li>
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">hyobbeee.github.io
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

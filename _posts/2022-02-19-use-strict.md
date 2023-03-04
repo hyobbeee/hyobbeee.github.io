@@ -1,14 +1,11 @@
 ---
 layout: post
-read_time: true
-show_date: true
 title:  "use strict란"
 date:   2023-02-19
-description: 깃 블로그 만드는거 왜이렇게 어려워요.
-img: my_keyboard.jpeg
-tags: [TIL, JavaScript]
 author: hyobbeee
-mathjax: yes
+categories: JavaScript
+tags: TIL JavaScript
+cover:  "/assets/instacode.png"
 ---
 ## 📍개념
 
