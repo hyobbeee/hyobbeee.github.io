@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>재귀</title>
+  <meta name="description" content="  GOAL          재귀의 의미      탈출 조건 이해      base case와 recursive case로 나눠 작성 가능      ">
+  
+  <meta name="author" content="Ben Centra">
+  <meta name="copyright" content="&copy; Ben Centra 2023">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="  GOAL          재귀의 의미      탈출 조건 이해      base case와 recursive case로 나눠 작성 가능      " />
+  <meta property="og:url" content="http://localhost:4000/2023/02/13/recursive-function.html">
+  <meta property="og:site_name" content="Centrarium" />
+  <meta property="og:title" content="재귀" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="재귀">
+  <meta name="twitter:description" content="  GOAL          재귀의 의미      탈출 조건 이해      base case와 recursive case로 나눠 작성 가능      ">
+  <meta name="twitter:image" content="http://localhost:4000/assets/logo.png">
+  <meta name="twitter:url" content="http://localhost:4000/2023/02/13/recursive-function.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2023/02/13/recursive-function.html">
+	<link rel="alternate" type="application/rss+xml" title="Centrarium" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="Centrarium">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">재귀</h1>
+      <p class="info">by <strong>hyobbeee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">February 13, 2023</div>
+  <div class="post-categories">
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <ul>
+  <li>GOAL
+    <ul>
+      <li>재귀의 의미</li>
+      <li>탈출 조건 이해</li>
+      <li>base case와 recursive case로 나눠 작성 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="재귀란">📍재귀란</h3>
+
+<p>원래 자리로 되돌아가거나, 되돌아옴.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">recursion</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is</span><span class="dl">"</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">recursion!</span><span class="dl">"</span><span class="p">)</span>
+  <span class="nx">recursion</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="재귀-예제">📍재귀 예제</h3>
+
+<p><code class="language-plaintext highlighter-rouge">문제: 자연수로 이루어진 리스트(배열)를 입력받고, 리스트의 합을 리턴하는 함수 </code>arrSum<code class="language-plaintext highlighter-rouge"> 을 작성하세요.</code></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">arrSum</span> <span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// 빈 배열을 받았을 때 0을 리턴하는 조건문</span>
+	<span class="c1">// --&gt; 가장 작은 문제를 해결하는 코드 &amp; 재귀를 멈추는 코드</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+	<span class="c1">// 배열의 첫 요소 + 나머지 요소가 담긴 배열을 받는 arrSum 함수</span>
+	<span class="c1">// --&gt; 재귀(자기 자신 호출)를 통해 문제를 작게 쪼개나가는 코드</span>
+	<span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span> <span class="o">+</span> <span class="nx">arrSum</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="언제-사용하는지">📍언제 사용하는지</h3>
+
+<ol>
+  <li>주어진 문제를 비슷한 구조의 더 작은 문제로 나눌 수 있는 경우</li>
+  <li>
+    <p>중첩된 반복문이 많거나 반복문의 중첩 횟수(number of loops)를 예측하기 어려운 경우</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">k</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+             <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">l</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">l</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                 <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">m</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">m</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                     <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                         <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">o</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">o</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">o</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                             <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">p</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">p</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                                 <span class="c1">// do something</span>
+                                 <span class="nx">someFunc</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">l</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">o</span><span class="p">,</span> <span class="nx">p</span><span class="p">);</span>
+                            <span class="p">}</span>
+                         <span class="p">}</span>
+                     <span class="p">}</span>
+                 <span class="p">}</span>
+             <span class="p">}</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>모든 재귀함수는 반복문으로 표현할 수 있다. 그러나 재귀를 적용할 수 있는 대부분의 경우는, 재귀를 적용한 코드가 더욱 간결하고 이해하기 쉽다.</p>
+
+<h3 id="재귀의-기초">📍재귀의 기초</h3>
+
+<p>문제를 여러 경우로 구분한 다음에, 가장 해결하기 쉬운 문제부터 해결하는 것</p>
+
+<p>재귀함수 구현시, 재귀의 탈출 조건(재귀 호출 멈추는 조건)을 구성한다.</p>
+
+<p>탈출 조건이 없으면 무한루프에 빠지게됨 → 문제를 최대한 작게 쪼갠 후 탈출 조건을 세우는 것이 중요</p>
+
+<p>ex) <code class="language-plaintext highlighter-rouge">arrSum</code> 을 더이상 쪼갤 수 없는 경우는 입력값이 빈 배열일 경우이고, 이때 <code class="language-plaintext highlighter-rouge">arrSum([])</code> 의 리턴 값은 0이다.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">arrSum: [number] =&gt; number</code></li>
+  <li><code class="language-plaintext highlighter-rouge">arrSum([ ]) === 0</code> ← 입력값이 빈 배열인 경우 : 해결!</li>
+  <li><code class="language-plaintext highlighter-rouge">arrSum([요소1, 요소2, ... , 요소n])</code></li>
+</ul>
+
+<h3 id="사용법">📍사용법</h3>
+
+<aside>
+💡 세줄요약
+1. 문제를 동일한 방식으로 쪼개기 (recursive case)
+2. 더이상 안쪼개지면 탈출조건임 (base case)
+3. base case 해결하기 → 쪼갠 문제 한번에 해결
+
+</aside>
+
+<ol>
+  <li>
+    <p><strong>재귀 함수의 입력값과 출력값 정의하기</strong></p>
+
+    <p>함수의 입출력값을 정의하는 것은 그 첫 출발점이다.</p>
+
+    <p>재귀적으로 사고하는 데 가장 먼저 해야할 일은 문제를 가장 추상적으로 또는, 가장 단순하게 정의하는 것이다.</p>
+
+    <p>ex) 함수 <code class="language-plaintext highlighter-rouge">arrSum</code> 의 경우 <code class="language-plaintext highlighter-rouge">number</code> 타입을 요소로 갖는 배열을 입력으로 받고, <code class="language-plaintext highlighter-rouge">number</code> 타입을 리턴한다. 이를 좀 더 간단하게 표기하면 다음과 같다.</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">arrSum</span><span class="p">:</span> <span class="p">[</span><span class="nx">number</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="nx">number</span> <span class="c1">// 입출력 값 정의</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>문제를 쪼개고 경우의 수를 나누기</strong></p>
+
+    <p>문제를 쪼갤 기준을 정하고, 정한 기준에 따라 문제를 더 큰 경우와 작은 경우로 구분할 수 있는지 확인한다.</p>
+
+    <p>일반적으로, <strong>입력값이나 문제의 순서와 크기</strong>를 기준으로 정한다.</p>
+
+    <p>주어진 입력값 또는 문제 상황을 크기로 구분할 수 있거나, 순서를 명확하게 정할 수 있다면 문제를 구분하는데 도움이 된다. 그리고 구분된 문제를 푸는 방식이 순서나 크기와 관계없이 모두 같다면, 문제를 제대로 구분한 것이다.</p>
+
+    <ul>
+      <li>함수 <code class="language-plaintext highlighter-rouge">arrSum</code> 은 입력값이 빈 배열인 경우와 그렇지 않은 경우로 나눌 수 있다. 각각의 경우는 다른 방식으로 처리해야 한다.
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">arrSum: [number] =&gt; numer</code></li>
+          <li><code class="language-plaintext highlighter-rouge">arrSum([ ])</code> ← 입력값이 빈 배열인 경우</li>
+          <li><code class="language-plaintext highlighter-rouge">arrSum([요소1, 요소2, ... , 요소n])</code> ← 그렇지 않은 경우</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>단순한 문제 해결하기 - 재귀의 기초(base case)</strong></p>
+
+    <p>문제를 여러 경우로 구분한 다음에는, 가장 해결하기 쉬운문제부터 해결한다.</p>
+
+    <p>재귀의 기초는 나중에 재귀함수를 구현할 때, 재귀의 탈출 조건을 구성한다.</p>
+
+    <p>탈출 조건이 없는 경우 재귀함수는 끝없이 자기 자신을 호출한다. 그렇다고 문제를 덜 쪼갠 상태로 탈출 조건을 세우는 경우 문제를 제대로 해결할 수 없다. 그만큼 문제를 최대한 작게 쪼갠 후 문제를 해결하는 것이 좋다.</p>
+
+    <ul>
+      <li>함수 <code class="language-plaintext highlighter-rouge">arrSum</code> 을 더이상 쪼갤 수 없는 경우는 입력값이 빈 배열일 경우이고, 이때 <code class="language-plaintext highlighter-rouge">arrSum([])</code> 의 리턴값은 0이다.
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">arrSum: [number] =&gt; number</code></li>
+          <li><code class="language-plaintext highlighter-rouge">arrSum([ ]) === 0</code> ← 입력값이 빈 배열인 경우 : 해결!</li>
+          <li><code class="language-plaintext highlighter-rouge">arrSum([요소1, 요소2, ... , 요소n])</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>복잡한 문제 해결하기</strong></p>
+
+    <p>남아있는 복잡한 경우를 해결한다.</p>
+
+    <ul>
+      <li>길이가 1이상인 배열이 함수 <code class="language-plaintext highlighter-rouge">arrSum</code> 에 입력된 경우, 입력된 배열을 배열의 첫 요소와 나머지 요소를 입력값으로 갖는 문제로 쪼개고, 둘을 더한다.</li>
+      <li><code class="language-plaintext highlighter-rouge">arrSum: [number] =&gt; number</code></li>
+      <li><code class="language-plaintext highlighter-rouge">arrSum([ ]) === 0</code></li>
+      <li><code class="language-plaintext highlighter-rouge">arrSum([요소1, 요소2, ... , 요소n]) === 요소1 + arrSum([요소2, ..., 요소n])</code> ← 그렇지 않은 경우 : 해결!</li>
+      <li>배열을 첫 요소와 더 작은 문제로 쪼개는 방법만 안다면, 함수 <code class="language-plaintext highlighter-rouge">arrSum</code> 을 재귀적으로 구현할 수 있습니다.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>코드로 구현</strong></p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">function</span> <span class="nx">arrSum</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+ 	<span class="c1">// base case : 문제를 더이상 쪼갤 수 없는 경우(재귀의 기초)</span>
+ 	<span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    
+ 	<span class="c1">// recursive case : 그렇지 않은 경우</span>
+ 	<span class="k">return</span> <span class="nx">요소1</span> <span class="o">+</span> <span class="nx">arrSum</span><span class="p">([</span><span class="nx">요소2</span><span class="p">,</span> <span class="p">...</span> <span class="p">,</span> <span class="nx">요소n</span><span class="p">]);</span>
+ <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<blockquote>
+  <p>cf. 일반적인 재귀 함수 탬플릿</p>
+
+</blockquote>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">recursive</span><span class="p">(</span><span class="nx">input1</span><span class="p">,</span> <span class="nx">input2</span><span class="p">,</span> <span class="p">...)</span> <span class="p">{</span>
+  <span class="c1">// base case : 문제를 더 이상 쪼갤 수 없는 경우</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">문제를</span> <span class="nx">더</span> <span class="nx">이상</span> <span class="nx">쪼갤</span> <span class="nx">수</span> <span class="nx">없을</span> <span class="nx">경우</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">단순한</span> <span class="nx">문제의</span> <span class="nx">해답</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// recursive case : 그렇지 않은 경우</span>
+  <span class="k">return</span> <span class="nx">더</span> <span class="nx">작은</span> <span class="nx">문제로</span> <span class="nx">새롭게</span> <span class="nx">정의된</span> <span class="nx">문제</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/TIL">TIL</a>,&nbsp;<a href="/tag/JavaScript">JavaScript</a>,&nbsp;<a href="/tag/자료구조">자료구조</a>,&nbsp;<a href="/tag/알고리즘">알고리즘</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=%EC%9E%AC%EA%B7%80&url=http%3A%2F%2Flocalhost%3A4000%2F2023%2F02%2F13%2Frecursive-function.html&via=TheBenCentra"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%EC%9E%AC%EA%B7%80&u=http%3A%2F%2Flocalhost%3A4000%2F2023%2F02%2F13%2Frecursive-function.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2023%2F02%2F13%2Frecursive-function.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=%EC%9E%AC%EA%B7%80&url=http%3A%2F%2Flocalhost%3A4000%2F2023%2F02%2F13%2Frecursive-function.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=%EC%9E%AC%EA%B7%80&url=http%3A%2F%2Flocalhost%3A4000%2F2023%2F02%2F13%2Frecursive-function.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/2023/02/13/recursive-function.html') + '&title=재귀'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Centrarium</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:blcentra@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">blcentra@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://twitter.com/TheBenCentra" title="Follow me on Twitter">
+              <i class="fa fa-twitter"></i>
+              <span class="username">TheBenCentra</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/bencentra" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">bencentra</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://www.linkedin.com/pub/ben-centra/47/769/60a" title="Connect with me on LinkedIn">
+              <i class="fa fa-linkedin"></i>
+              <span class="username">Ben Centra</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple yet classy theme for your Jekyll website or blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CORS</title>
+  <meta name="description" content="탄생배경">
+  
+  <meta name="author" content="Ben Centra">
+  <meta name="copyright" content="&copy; Ben Centra 2023">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="탄생배경" />
+  <meta property="og:url" content="http://localhost:4000/2023/02/20/react-hook.html">
+  <meta property="og:site_name" content="Centrarium" />
+  <meta property="og:title" content="CORS" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CORS">
+  <meta name="twitter:description" content="탄생배경">
+  <meta name="twitter:image" content="http://localhost:4000/assets/logo.png">
+  <meta name="twitter:url" content="http://localhost:4000/2023/02/20/react-hook.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2023/02/20/react-hook.html">
+	<link rel="alternate" type="application/rss+xml" title="Centrarium" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="Centrarium">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">CORS</h1>
+      <p class="info">by <strong>hyobbeee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">February 20, 2023</div>
+  <div class="post-categories">
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h3 id="탄생배경">탄생배경</h3>
+
+<ul>
+  <li>고차 컴포넌트와 render props로 인한 코드 추적의 어려움을 해결하기 위함</li>
+</ul>
+
+<h3 id="특징">특징</h3>
+
+<ul>
+  <li>컴포넌트로부터 상태 관련 로직을 추상화 ⇒ 테스트와 재사용이 가능</li>
+  <li><strong>계층의 변화 없이 상태 관련 로직을 재사용할 수 있음</strong></li>
+  <li>
+    <p>서로 비슷한 것을 하는 작은 함수의 묶음으로 컴포넌트를 나눔</p>
+
+    <p>클래스 컴포넌트: 생명주기 메소드를 기반으로 쪼갬 (ex. componentDidMount)</p>
+
+    <p>함수형 컴포넌트: 성격이 비슷한 함수 묶음으로 쪼갬 (ex. 구독 설정 및 데이터를 불러오는 것과 같은 로직)</p>
+  </li>
+</ul>
+
+<h3 id="사용규칙">사용규칙</h3>
+
+<ol>
+  <li>최상위 (at the top level)에서만 Hook 호출</li>
+  <li>React 함수 컴포넌트 내에서만 Hook  호출</li>
+</ol>
+
+<h2 id="hook과-함수-컴포넌트"><strong>Hook과 함수 컴포넌트</strong></h2>
+
+<h3 id="함수-컴포넌트">함수 컴포넌트</h3>
+
+<ul>
+  <li>state를 가지지 못함</li>
+  <li>lifecycle 함수를 가지지 못함</li>
+</ul>
+
+<h3 id="hook">Hook</h3>
+
+<p>함수 컴포넌트에서 state와 lifecycle 함수를 이용할 수 있다.</p>
+
+<h2 id="usestate">useState</h2>
+
+<h3 id="컨셉">컨셉</h3>
+
+<aside>
+💡 state 값 갱신하면 React가 새로운 state를 컴포넌트에 넘긴다.
+
+</aside>
+
+<ul>
+  <li>지역변수 단위이며 컴포넌트 개별적으로 갱신</li>
+  <li>클래스 컴포넌트에서 <code class="language-plaintext highlighter-rouge">this.setState()</code>가 동일한 역할을 한다.</li>
+  <li>얕은 비교를 한다.</li>
+</ul>
+
+<ol>
+  <li>event 발생! ⇒ state 갱신!</li>
+  <li>리액트가 새 state를 컴포넌트에 넘겨줌</li>
+  <li>컴포넌트 rerender!</li>
+</ol>
+
+<h3 id="usestate-vs-thissetstate">useState vs this.setState</h3>
+
+<p><strong>this.setState</strong></p>
+
+<ul>
+  <li>state 업데이트는 병합된다.</li>
+  <li>state는 다양한 독립적인 변수를 포함할 수 있는데,  별도의 <code class="language-plaintext highlighter-rouge">setState()</code>호출로 이러한 변수를 독립적으로 업데이트할 수 있습니다.</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">posts</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="na">comments</span><span class="p">:</span> <span class="p">[]</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+      <span class="na">posts</span><span class="p">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">posts</span>
+    <span class="p">});</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+    <span class="na">comments</span><span class="p">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">comments</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="문법">문법</h3>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 새로운 state 변수를 선언하고, count라 부르겠습니다.</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>You clicked <span class="si">{</span><span class="nx">count</span><span class="si">}</span> times<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="p">&gt;</span>
+        Click me
+      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Import useState</li>
+  <li>
+    <p>구조 분해 할당으로 변수 선언</p>
+
+    <p><code class="language-plaintext highlighter-rouge">[ 변수, set변수 ] = useState(초기값)</code></p>
+  </li>
+  <li>set변수 함수로 state 갱신</li>
+  <li>컴포넌트 rerender</li>
+</ol>
+
+<h2 id="memo">memo</h2>
+
+<h3 id="컨셉-1">컨셉</h3>
+
+<aside>
+💡 props로 얻은 결과를 메모이징
+
+</aside>
+
+<ul>
+  <li>props가 변동되면 rerender</li>
+</ul>
+
+<p>만약, memo를 설정한 컴포넌트에</p>
+
+<ul>
+  <li>useState</li>
+  <li>useReducer</li>
+  <li>useContext</li>
+</ul>
+
+<p>훅을 사용하면, state/context 변할 때마다 다시 렌더링된다.</p>
+
+<h2 id="useref">useRef</h2>
+
+<h3 id="컨셉-2">컨셉</h3>
+
+<aside>
+💡 요소를 선택/포커스 관리하기 위해  사용하는 함수
+
+</aside>
+
+<h3 id="사용">사용</h3>
+
+<ol>
+  <li>Import useRef</li>
+  <li>변수에 useRef 선언</li>
+  <li>원하는 요소에 ref={변수} 선언</li>
+  <li>사용할 때, 변수.current 사용</li>
+</ol>
+
+<h3 id="예시">예시</h3>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useRef</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">InputSample</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">nameInput</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">();</span>
+
+  <span class="kd">const</span> <span class="nx">onReset</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Do something</span>
+    <span class="nx">nameInput</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">focus</span><span class="p">();</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">ref</span><span class="p">=</span><span class="si">{</span><span class="nx">nameInput</span><span class="si">}</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">onReset</span><span class="si">}</span><span class="p">&gt;</span>초기화<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">InputSample</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="useeffect">useEffect</h2>
+
+<aside>
+💡 렌더링 이후에 발생하는 사이드 이펙트 설정
+
+</aside>
+
+<ul>
+  <li>componentDidMount, componentDidUpdate, componentWillUnmount와 같은 목적으로 제공</li>
+  <li>props와 state에 접근 가능</li>
+  <li>여러개의 effect 사용 가능</li>
+  <li>로직과 서로 관련 있는 코드들을 한군데에 모아서 작성 가능</li>
+</ul>
+
+<h3 id="특징-1">특징</h3>
+
+<ol>
+  <li>첫번째 렌더링에서 수행</li>
+  <li>이후의 모든 업데이트에서도 수행</li>
+  <li>리렌더링하면, effect는 매번 새로 교체</li>
+</ol>
+
+<h3 id="문법-1">문법</h3>
+
+<p>useEffect(콜백함수, 인자)</p>
+
+<ol>
+  <li>useEffect(콜백함수, []) ⇒ 첫번째 렌더링에서만 수행</li>
+  <li>useEffect(콜백함수, [변수]) ⇒ 변수가 업데이트 될 때마다 실행</li>
+</ol>
+
+<h3 id="실행순서">실행순서</h3>
+
+<ul>
+  <li>React가 DOM을 업데이트한 뒤</li>
+  <li><code class="language-plaintext highlighter-rouge">render</code> ⇒ <code class="language-plaintext highlighter-rouge">React DOM update</code> ⇒ <code class="language-plaintext highlighter-rouge">side effect 발생</code></li>
+</ul>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/797e2e8c-e950-4e5b-98c0-e44bcd4dac41/react_hook_flow_diagram.png" alt="react hook flow diagram.png" /></p>
+
+<h3 id="effect-해제">effect 해제</h3>
+
+<ul>
+  <li>useEffect에 return () ⇒ { 해제할 함수 표현식 } 추가</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">WidthPrinter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">width</span><span class="p">,</span> <span class="nx">setWidth</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">);</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span><span class="o">=&gt;</span><span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">onResize</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">setWidth</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">);</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">resize</span><span class="dl">'</span><span class="p">,</span><span class="nx">onResize</span><span class="p">);</span> <span class="c1">// 등록</span>
+
+    <span class="k">return</span> <span class="p">()</span><span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">resize</span><span class="dl">'</span><span class="p">,</span><span class="nx">onResize</span><span class="p">);</span>  <span class="c1">// 해제</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="si">{</span><span class="s2">`width is </span><span class="p">${</span><span class="nx">width</span><span class="p">}</span><span class="s2">`</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">WidthPrinter</span><span class="p">;</span>
+</code></pre></div></div>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/TIL">TIL</a>,&nbsp;<a href="/tag/web">web</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=CORS&url=http%3A%2F%2Flocalhost%3A4000%2F2023%2F02%2F20%2Freact-hook.html&via=TheBenCentra"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=CORS&u=http%3A%2F%2Flocalhost%3A4000%2F2023%2F02%2F20%2Freact-hook.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2023%2F02%2F20%2Freact-hook.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=CORS&url=http%3A%2F%2Flocalhost%3A4000%2F2023%2F02%2F20%2Freact-hook.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=CORS&url=http%3A%2F%2Flocalhost%3A4000%2F2023%2F02%2F20%2Freact-hook.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/2023/02/20/react-hook.html') + '&title=CORS'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Centrarium</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:blcentra@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">blcentra@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://twitter.com/TheBenCentra" title="Follow me on Twitter">
+              <i class="fa fa-twitter"></i>
+              <span class="username">TheBenCentra</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/bencentra" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">bencentra</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://www.linkedin.com/pub/ben-centra/47/769/60a" title="Connect with me on LinkedIn">
+              <i class="fa fa-linkedin"></i>
+              <span class="username">Ben Centra</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple yet classy theme for your Jekyll website or blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

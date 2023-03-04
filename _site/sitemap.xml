@@ -1,237 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-    
-    <url>
-      <loc>http://localhost:4000/for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html</loc>
-      
-        <lastmod>2023-01-30T00:00:00+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority></url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/3rd-party-module.html</loc>
-      
-        <lastmod>2023-01-24T00:00:00+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority></url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/TIL-Start.html</loc>
-      
-        <lastmod>2023-01-23T00:00:00+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority></url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/conways-game-of-life.html</loc>
-      
-        <lastmod>2021-02-11T04:32:20+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority></url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/single-neuron-perceptron.html</loc>
-      
-        <lastmod>2021-01-26T04:32:20+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority></url>
-    
-  
-  
-    
-    <url>
-      <loc>http://localhost:4000/404.html</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/about.html</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/all-posts.json</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/archive.html</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/ipfs-404.html</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/posts-by-tag.json</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/search.json</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/tag.html</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/tags.html</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/feed.xml</loc>
-      
-        <lastmod>2023-01-31T23:10:27+09:00</lastmod>
-      
-      
-        <changefreq>daily</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/dummy/2015/04/19/dummy.html</loc>
+<lastmod>2015-04-19T04:25:52+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/dummy/2015/04/19/dummy2.html</loc>
+<lastmod>2015-04-19T04:25:52+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/dummy/2015/04/19/dummy3.html</loc>
+<lastmod>2015-04-19T04:25:52+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/dummy/2015/04/19/dummy4.html</loc>
+<lastmod>2015-04-19T04:25:52+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/dummy/2015/04/19/dummy5.html</loc>
+<lastmod>2015-04-19T04:25:52+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/dummy/2015/04/19/dummy6.html</loc>
+<lastmod>2015-04-19T04:25:52+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/jekyll/2015/04/19/welcome-to-jekyll.html</loc>
+<lastmod>2015-04-19T04:25:52+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/dummy/2015/04/19/dummy6.html</loc>
+<lastmod>2015-04-19T17:43:59+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/jekyll/2015/04/20/welcome-to-jekyll.html</loc>
+<lastmod>2015-04-20T17:43:59+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2021/01/26/single-neuron-perceptron.html</loc>
+<lastmod>2021-01-26T04:32:20+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2021/01/26/REST-API-%EB%9E%80.html</loc>
+<lastmod>2021-01-26T04:32:20+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2021/02/11/conways-game-of-life.html</loc>
+<lastmod>2021-02-11T04:32:20+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/01/23/TIL-Start.html</loc>
+<lastmod>2023-01-23T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/til/javascript/2023/01/24/3rd-party-module.html</loc>
+<lastmod>2023-01-24T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/01/30/for%EB%AC%B8%EA%B3%BC-while%EB%AC%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4.html</loc>
+<lastmod>2023-01-30T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/05/states-airline.html</loc>
+<lastmod>2023-02-05T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/05/promise.html</loc>
+<lastmod>2023-02-05T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/11/mock-interview-preparation.html</loc>
+<lastmod>2023-02-11T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/12/javascript-this.html</loc>
+<lastmod>2023-02-12T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/13/recursive-function.html</loc>
+<lastmod>2023-02-13T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/15/fetch.html</loc>
+<lastmod>2023-02-15T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/16/recursion.html</loc>
+<lastmod>2023-02-16T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/18/pseudo-code.html</loc>
+<lastmod>2023-02-18T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/19/use-strict.html</loc>
+<lastmod>2023-02-19T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/20/CORS.html</loc>
+<lastmod>2023-02-20T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/20/react-hook.html</loc>
+<lastmod>2023-02-20T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/25/%EC%A0%95%EB%A0%AC-bubble,selection,insertion.html</loc>
+<lastmod>2023-02-25T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/26/binary-search.html</loc>
+<lastmod>2023-02-26T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/27/!vs!!.html</loc>
+<lastmod>2023-02-27T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/02/28/dynamic-programing.html</loc>
+<lastmod>2023-02-28T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/03/01/ajax-axios-fetch.md.html</loc>
+<lastmod>2023-03-01T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023/03/03/power.html</loc>
+<lastmod>2023-03-03T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/posts/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/typography/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/ipsum/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/lorem/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/jekyll/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/welcome/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/machine-learning/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/coding/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/neural-networks/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/python/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/til/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/javascript/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/network/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/etc/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/web/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/algorithm/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/web/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/dummy/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/jekyll/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/til/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/javascript/</loc>
+</url>
 </urlset>
