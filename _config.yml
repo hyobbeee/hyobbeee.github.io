@@ -25,7 +25,7 @@ logo: "/assets/logo.png"
 
 # Build settings
 markdown: kramdown
-inter_post_navigation: false
+inter_post_navigation: true
 highlightjs_theme: "monokai-sublime"
 
 # Pagination Settings
@@ -191,13 +191,13 @@ social:
 # Social sharing protocols
 # These are for automatically generating sharing metadata for FB and Twitter
 # OS Protocol is for sharing the source of your site, if you're interested. For more, see osprotocol.com
-# protocols:
-#     fb_image: "/assets/logo.png"
-#     fb_image_width: 612
-#     fb_image_height: 605
-#     fb_image_type: "image/png"
+protocols:
+    fb_image: "/assets/logo.png"
+    fb_image_width: 1000
+    fb_image_height: 315
+    fb_image_type: "image/png"
 
-#     twitter_image: "/assets/logo.png"
+    twitter_image: "/assets/logo.png"
 
 #     os_repo: "https://github.com/bencentra/centrarium.com"
 #     os_rcs_type: "git"
