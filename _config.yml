@@ -10,7 +10,7 @@ exclude:
 
 # Site settings
 title: HTIL
-subtitle: "안녕하세요. 한우의 고장 횡성에서 온 윤종협이라고 합니다."
+subtitle: "hyobbeee.github.io"
 email: yjh5799@naver.com
 name: 윤종협
 description: >
@@ -95,7 +95,7 @@ social:
     username: hyobbeee
     url: https://github.com/hyobbeee
     desc: Fork me on GitHub
-    share: false
+    share: true
 
   # - name: LinkedIn
   #   icon: linkedin
@@ -120,10 +120,10 @@ social:
 
   - name: Instagram
     icon: instagram
-    username: ""
-    url: ""
+    username: "creamizzang"
+    url: "https://www.instagram.com/creamizzang/"
     desc: Follow me on Instagram
-    share: false
+    share: true
 
   # - name: Pinterest
   #   icon: pinterest
@@ -191,14 +191,14 @@ social:
 # Social sharing protocols
 # These are for automatically generating sharing metadata for FB and Twitter
 # OS Protocol is for sharing the source of your site, if you're interested. For more, see osprotocol.com
-protocols:
-    fb_image: "/assets/logo.png"
-    fb_image_width: 612
-    fb_image_height: 605
-    fb_image_type: "image/png"
+# protocols:
+#     fb_image: "/assets/logo.png"
+#     fb_image_width: 612
+#     fb_image_height: 605
+#     fb_image_type: "image/png"
 
-    twitter_image: "/assets/logo.png"
+#     twitter_image: "/assets/logo.png"
 
-    os_repo: "https://github.com/bencentra/centrarium.com"
-    os_rcs_type: "git"
-    os_src: "git@github.com:bencentra/centrarium.com.git"
+#     os_repo: "https://github.com/bencentra/centrarium.com"
+#     os_rcs_type: "git"
+#     os_src: "git@github.com:bencentra/centrarium.com.git"
