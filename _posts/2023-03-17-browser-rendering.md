@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "graph & tree"
-date:   2023-03-15
-tags: TIL web
+title:  "브라우저 렌더링"
+date:   2023-03-17
+tags: TIL WEB
 author: hyobbeee
-categories: web
+categories: WEB
 cover:  "/assets/instacode.png"
 ---
 
@@ -346,17 +346,17 @@ DOM트리와 ≠ CSSOM트리 : 애초에 리소스부터 틀린 서로 다른 �
 
 - 리플로우가 일어나는 속성
 
-| position | width |  height | left | top | right |
+| position | width | height | left | top | right |
 | --- | --- | --- | --- | --- | --- |
-| bottom | margin |  padding | border | border-width | clear |
-| display | float | font-family | font-size | font-weight | line-height |
-| min-height | overflow | text-align | vertical-align |  ... |  |
+| bottom | margin | padding | border | border-width | clear |
+| display | float | font-family | font-size | font-weight | line-height |
+| min-height | overflow | text-align | vertical-align | ... |  |
 - 리페인트가 일어나는 속성
 
-| background | background-image |  background-position | background-repeat | background-size | border-radius |
+| background | background-image | background-position | background-repeat | background-size | border-radius |
 | --- | --- | --- | --- | --- | --- |
-| border-style | box-shadow |  color | line-style | outline | clear |
-| display | float | font-family | font-size | font-weight | outline-color |
+| border-style | box-shadow | color | line-style | outline | clear |
+| display | float | font-family | font-size | font-weight | outline-color |
 | visibility | ... |  |  |  |  |
 
 ### 영향 주는 노드 줄이기
